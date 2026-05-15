@@ -1,4 +1,5 @@
 import { cacheLife } from "next/cache";
+import { TrustBar } from "@/components/trust-bar";
 import { YnsLink } from "@/components/yns-link";
 import { commerce } from "@/lib/commerce";
 
@@ -65,6 +66,10 @@ async function FooterLegalPages() {
 export function Footer() {
 	return (
 		<footer className="border-t border-border bg-background">
+			{/* Trust Bar */}
+			<TrustBar />
+
+			{/* Links section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="py-12 sm:py-16 flex flex-col sm:flex-row gap-8 sm:gap-16">
 					{/* Brand */}
@@ -99,8 +104,10 @@ export function Footer() {
 					{/* Legal */}
 					<FooterLegalPages />
 				</div>
+			</div>
 
-				{/* Bottom bar */}
+			{/* Bottom bar */}
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="py-6 border-t border-border">
 					<p className="text-sm text-muted-foreground">
 						&copy; {new Date().getFullYear()} Your Next Store. All rights reserved.

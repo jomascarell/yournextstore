@@ -44,21 +44,9 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 	const singleVariant = variants?.length === 1 ? variants[0] : null;
 
 	return (
-		<YnsLink prefetch={"eager"} href={`/product/${product.slug}`} className="group">
-			<div className="relative aspect-square bg-secondary rounded-2xl overflow-hidden mb-4">
-				{singleVariant && (
-					<QuickAddButton
-						variantId={singleVariant.id}
-						variantPrice={singleVariant.price}
-						variantImages={singleVariant.images}
-						product={{
-							id: product.id,
-							name: product.name,
-							slug: product.slug,
-							images: product.images ?? [],
-						}}
-					/>
-				)}
+		<YnsLink prefetch={"eager"} href={`/product/${product.slug}`} className="group flex flex-col">
+			{/* Imagen */}
+			<div className="relative aspect-square bg-secondary rounded-2xl overflow-hidden mb-3">
 				{primaryImage &&
 					(isVideoUrl(primaryImage) ? (
 						<video
@@ -75,7 +63,7 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 							alt={product.name}
 							fill
 							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-							className={`object-cover transition-opacity duration-500 ${secondaryImage ? "group-hover:opacity-0" : ""}`}
+							className={`object-cover transition-all duration-500 group-hover:scale-105 ${secondaryImage ? "group-hover:opacity-0" : ""}`}
 						/>
 					))}
 				{secondaryImage &&
@@ -97,10 +85,36 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 							className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
 						/>
 					))}
+
+				{/* Overlay hover con CTA Ver producto */}
+				<div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100">
+					<span className="bg-background text-foreground text-xs font-medium px-4 py-2 rounded-full shadow-sm">
+						Ver producto
+					</span>
+				</div>
+
+				{/* Quick add button — solo productos con variante única */}
+				{singleVariant && (
+					<div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+						<QuickAddButton
+							variantId={singleVariant.id}
+							variantPrice={singleVariant.price}
+							variantImages={singleVariant.images}
+							product={{
+								id: product.id,
+								name: product.name,
+								slug: product.slug,
+								images: product.images ?? [],
+							}}
+						/>
+					</div>
+				)}
 			</div>
-			<div className="space-y-1">
-				<h3 className="text-base font-medium text-foreground">{product.name}</h3>
-				<p className="text-base font-semibold text-foreground">{priceDisplay}</p>
+
+			{/* Info producto */}
+			<div className="flex items-start justify-between gap-2 px-1">
+				<h3 className="text-sm font-medium text-foreground leading-snug">{product.name}</h3>
+				<p className="text-sm font-semibold text-foreground whitespace-nowrap">{priceDisplay}</p>
 			</div>
 		</YnsLink>
 	);

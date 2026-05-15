@@ -2,7 +2,7 @@
 
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { removeFromCart, setCartQuantity } from "@/app/cart/actions";
 import { type CartLineItem, getLineItemUnitPrice, useCart } from "@/app/cart/cart-context";
 import { YnsLink } from "@/components/yns-link";
@@ -19,6 +19,7 @@ export function CartItem({ item }: CartItemProps) {
 	const router = useRouter();
 	const { dispatch, closeCart } = useCart();
 	const [isPending, startTransition] = useTransition();
+	const [confirmDelete, setConfirmDelete] = useState(false);
 
 	const { productVariant, quantity } = item;
 	const { product } = productVariant;
@@ -33,6 +34,7 @@ export function CartItem({ item }: CartItemProps) {
 			await removeFromCart(productVariant.id);
 			router.refresh();
 		});
+		setConfirmDelete(false);
 	};
 
 	const handleIncrement = () => {
@@ -45,7 +47,7 @@ export function CartItem({ item }: CartItemProps) {
 
 	const handleDecrement = () => {
 		if (quantity <= 1) {
-			handleRemove();
+			setConfirmDelete(true);
 			return;
 		}
 		startTransition(async () => {
@@ -80,7 +82,7 @@ export function CartItem({ item }: CartItemProps) {
 					</YnsLink>
 					<button
 						type="button"
-						onClick={handleRemove}
+						onClick={() => setConfirmDelete(true)}
 						disabled={isPending}
 						className="shrink-0 p-1 text-muted-foreground hover:text-destructive transition-colors disabled:pointer-events-none disabled:opacity-50"
 						aria-label="Remove item"
@@ -88,6 +90,31 @@ export function CartItem({ item }: CartItemProps) {
 						<Trash2 className="h-4 w-4" />
 					</button>
 				</div>
+
+				{/* Confirmación de eliminación */}
+				{confirmDelete && (
+					<div className="my-2 rounded-lg border border-border bg-secondary/50 p-3 text-sm">
+						<p className="font-medium text-foreground mb-2">¿Eliminar este producto del carrito?</p>
+						<div className="flex gap-2">
+							<button
+								type="button"
+								onClick={handleRemove}
+								disabled={isPending}
+								className="flex-1 rounded-md bg-foreground text-background py-1.5 text-xs font-medium hover:opacity-80 transition-opacity disabled:opacity-50"
+							>
+								Sí, eliminar
+							</button>
+							<button
+								type="button"
+								onClick={() => setConfirmDelete(false)}
+								disabled={isPending}
+								className="flex-1 rounded-md border border-border py-1.5 text-xs font-medium hover:bg-secondary transition-colors disabled:opacity-50"
+							>
+								Cancelar
+							</button>
+						</div>
+					</div>
+				)}
 
 				<div className="flex items-center justify-between">
 					{/* Quantity Controls */}
