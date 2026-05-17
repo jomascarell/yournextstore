@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
 import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
@@ -16,14 +16,14 @@ import { commerce, getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
 import { getCartCookieJson } from "@/lib/cookies";
 import { StoreJsonLd } from "@/lib/json-ld";
 
-const geistSans = localFont({
-	src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
+const geistSans = Geist({
 	variable: "--font-geist-sans",
+	subsets: ["latin"],
 });
 
-const geistMono = localFont({
-	src: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2",
+const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
+	subsets: ["latin"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
