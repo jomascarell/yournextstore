@@ -17,9 +17,18 @@ type QuickAddButtonProps = {
 		slug: string;
 		images: string[];
 	};
+	className?: string;
+	children?: React.ReactNode;
 };
 
-export function QuickAddButton({ variantId, variantPrice, variantImages, product }: QuickAddButtonProps) {
+export function QuickAddButton({
+	variantId,
+	variantPrice,
+	variantImages,
+	product,
+	className,
+	children,
+}: QuickAddButtonProps) {
 	const [isPending, startTransition] = useTransition();
 	const { openCart, dispatch } = useCart();
 
@@ -47,20 +56,27 @@ export function QuickAddButton({ variantId, variantPrice, variantImages, product
 		});
 	};
 
+	const button = (
+		<button
+			type="button"
+			onClick={handleClick}
+			disabled={isPending}
+			className={
+				className ??
+				"absolute bottom-3 left-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-background/80 backdrop-blur-sm transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-background hover:scale-110 active:scale-95 disabled:opacity-50"
+			}
+			aria-label={`Add ${product.name} to cart`}
+		>
+			{children ?? <ShoppingBag className={`h-3.5 w-3.5 ${isPending ? "animate-pulse" : ""}`} />}
+		</button>
+	);
+
+	if (children) return button;
+
 	return (
 		<TooltipPrimitive.Provider delayDuration={1000}>
 			<TooltipPrimitive.Root>
-				<TooltipTrigger asChild>
-					<button
-						type="button"
-						onClick={handleClick}
-						disabled={isPending}
-						className="absolute bottom-3 left-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-background/80 backdrop-blur-sm transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-background hover:scale-110 active:scale-95 disabled:opacity-50"
-						aria-label={`Add ${product.name} to cart`}
-					>
-						<ShoppingBag className={`h-3.5 w-3.5 ${isPending ? "animate-pulse" : ""}`} />
-					</button>
-				</TooltipTrigger>
+				<TooltipTrigger asChild>{button}</TooltipTrigger>
 				<TooltipContent side="top" className="text-xs">
 					Add to cart
 				</TooltipContent>
