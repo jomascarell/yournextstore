@@ -5,12 +5,10 @@ export function ImpactSummary() {
 		<section className="grid grid-cols-1 lg:grid-cols-2">
 			{/* Left: text */}
 			<div
-				className="flex flex-col justify-center gap-6 px-8 py-16 sm:px-12 lg:px-16 lg:py-24"
+				className="flex flex-col justify-center gap-6 px-8 py-24 sm:px-12 lg:px-16"
 				style={{ backgroundColor: "rgb(246,245,255)" }}
 			>
-				<h2 className="text-3xl sm:text-4xl font-normal leading-tight tracking-wide text-foreground">
-					Feel it in person
-				</h2>
+				<h2 className="text-5xl font-normal leading-none text-foreground">FEEL IT in PERSON</h2>
 				<p className="max-w-md text-muted-foreground">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet dignissim turpis. Nullam ac
 					suscipit lectus, at maximus dui. Sed efficitur vitae risus vitae tempor. Aenean rutrum consectetur

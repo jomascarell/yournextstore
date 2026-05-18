@@ -9,8 +9,8 @@ import { WorkGallery } from "@/components/sections/work-gallery";
 
 function RecentlyAddedSkeleton() {
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-16 sm:py-24">
-			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
+		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
+			<div className="mx-auto max-w-7xl px-8 sm:px-4 lg:px-20">
 				<div className="mb-10 h-8 w-48 animate-pulse rounded bg-black/10" />
 				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
 					{Array.from({ length: 4 }).map((_, i) => (

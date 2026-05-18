@@ -11,16 +11,19 @@ export async function RecentlyAdded() {
 	const { data: products } = await commerce.productBrowse({ active: true, limit: 4 });
 
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-16 sm:py-24">
-			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
-				<div className="mb-10 flex items-end justify-between">
-					<h2 className="text-2xl font-normal text-foreground">Recién añadidos</h2>
+		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
+			<div className="mx-auto max-w-7xl px-8 sm:px-4 lg:px-20">
+				<div className="mb-12 flex items-end justify-between">
+					<div className="flex flex-col gap-1">
+						<h2 className="text-5xl font-normal leading-none text-foreground">Añadidos recientemente</h2>
+						<p className="text-base text-muted-foreground">Better-for-your styles you&apos;ll love, too.</p>
+					</div>
 					<YnsLink
 						prefetch="eager"
 						href="/products"
 						className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
 					>
-						Ver todos
+						Ver más
 						<ArrowRight className="h-4 w-4" />
 					</YnsLink>
 				</div>

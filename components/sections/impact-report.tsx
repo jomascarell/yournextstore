@@ -16,13 +16,13 @@ export function ImpactReport() {
 
 			{/* Text — centered */}
 			<div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center text-white">
-				<p className="text-sm tracking-widest uppercase">Impact Report</p>
-				<h2 className="text-3xl sm:text-4xl font-normal leading-tight tracking-wide">
+				<p className="text-2xl font-normal uppercase">IMPACT REPORT</p>
+				<h2 className="text-4xl font-medium leading-11 tracking-[0.03em]">
 					Natural Isn't Our New Direction.
 					<br />
 					It's Our Origin.
 				</h2>
-				<p className="text-base sm:text-lg">Responsible style has never looked better.</p>
+				<p className="text-base">Responsible style has never looked better.</p>
 			</div>
 		</section>
 	);

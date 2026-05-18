@@ -20,18 +20,15 @@ export function ImpactOverview() {
 
 			{/* Right: text */}
 			<div
-				className="flex flex-col justify-center gap-6 px-8 py-16 sm:px-12 lg:px-16 lg:py-24"
+				className="flex flex-col justify-center gap-6 px-8 py-24 sm:px-12 lg:px-16"
 				style={{ backgroundColor: "rgb(246,245,255)" }}
 			>
-				<h2 className="text-3xl sm:text-4xl font-normal leading-tight tracking-wide text-foreground">
+				<h2 className="text-4xl font-medium leading-11 tracking-[0.03em] text-foreground">
 					Natural Isn't Our New Direction. It's Our Origin.
 				</h2>
 				<p className="max-w-md text-muted-foreground">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet dignissim turpis. Nullam ac
-					suscipit lectus, at maximus dui. Sed efficitur vitae risus vitae tempor. Aenean rutrum consectetur
-					nisi tempor dictum. Donec mollis finibus mollis. Suspendisse ut mi nisl. Integer fermentum quam ut
-					mauris auctor consequat. Etiam quis quam tortor. Phasellus eu justo eu ipsum aliquet consectetur
-					vitae id quam. Curabitur sed orci ut ipsum tincidunt faucibus.
+					But that's not the whole story. We go further. Organic and regenerative over conventional. Traceable
+					over vague. Designed to last.
 				</p>
 				<p className="max-w-md text-muted-foreground">Responsible style has never looked better.</p>
 				<div className="mt-2">

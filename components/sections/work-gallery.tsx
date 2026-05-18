@@ -9,9 +9,16 @@ const galleryItems = [
 
 export function WorkGallery() {
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-16 sm:py-24">
-			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
-				<h2 className="mb-10 text-2xl font-normal text-foreground">Nuestro trabajo</h2>
+		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
+			<div className="mx-auto max-w-7xl px-8 sm:px-4 lg:px-20">
+				<div className="mb-12 flex flex-col gap-1">
+					<h2 className="text-5xl font-normal leading-none text-foreground">
+						Una pequeña muestra de mi trabajo
+					</h2>
+					<p className="text-base text-muted-foreground">
+						Piezas únicas, elaboradas con cuidado y atención al detalle.
+					</p>
+				</div>
 				<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
 					{galleryItems.map((item) => (
 						<div key={item.id} className="relative overflow-hidden" style={{ aspectRatio: "304/600" }}>
