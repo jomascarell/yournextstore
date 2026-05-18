@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Josefin_Sans, Lato } from "next/font/google";
 import { Suspense } from "react";
 import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
@@ -16,14 +16,16 @@ import { commerce, getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
 import { getCartCookieJson } from "@/lib/cookies";
 import { StoreJsonLd } from "@/lib/json-ld";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
+const josefinSans = Josefin_Sans({
+	variable: "--font-josefin-sans",
 	subsets: ["latin"],
+	weight: ["400", "700"],
 });
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
+const lato = Lato({
+	variable: "--font-lato",
 	subsets: ["latin"],
+	weight: ["400", "700"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -103,7 +105,7 @@ export default function RootLayout({
 
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+			<body className={`${josefinSans.variable} ${lato.variable} antialiased`}>
 				<Suspense>
 					<StoreJsonLd />
 				</Suspense>
