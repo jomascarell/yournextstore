@@ -33,7 +33,7 @@ export function CtaSignUp() {
 				</div>
 				{state?.error && <p className="mt-2 text-xs text-red-400">{state.error}</p>}
 			</form>
-			<p className="text-xs leading-relaxed text-white/50">
+			<p className="text-xs leading-relaxed text-white/70">
 				Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento
 				de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados,
 				historias originales, eventos y más de acuerdo con la política de privacidad.

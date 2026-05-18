@@ -5,7 +5,6 @@ import { ImpactReport } from "@/components/sections/impact-report";
 import { ImpactSummary } from "@/components/sections/impact-summary";
 import { RecentlyAdded } from "@/components/sections/recently-added";
 import { SocialStrip } from "@/components/sections/social-strip";
-import { StoryPanels } from "@/components/sections/story-panels";
 import { WorkGallery } from "@/components/sections/work-gallery";
 
 function RecentlyAddedSkeleton() {
@@ -33,14 +32,13 @@ export default function Home() {
 	return (
 		<main>
 			<Hero />
+			<WorkGallery />
 			<ImpactOverview />
 			<ImpactReport />
-			<StoryPanels />
-			<ImpactSummary />
-			<WorkGallery />
 			<Suspense fallback={<RecentlyAddedSkeleton />}>
 				<RecentlyAdded />
 			</Suspense>
+			<ImpactSummary />
 			<SocialStrip />
 		</main>
 	);

@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
 	allowedDevOrigins: ["*.vercel.run", "*.yns.store", "*.yns.cx"],
 	reactCompiler: true,
 	cacheComponents: true,
+	turbopack: {
+		root: __dirname,
+	},
 	experimental: {
 		typedEnv: true,
 		optimizePackageImports: [

@@ -123,7 +123,8 @@ export function Footer() {
 										alt={method.label}
 										width={38}
 										height={24}
-										className="object-contain brightness-0 invert"
+										className="brightness-0 invert"
+										style={{ height: "auto" }}
 									/>
 								))}
 							</div>
