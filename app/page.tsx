@@ -1,28 +1,29 @@
 import { Suspense } from "react";
-import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
-import { Newsletter } from "@/components/sections/newsletter";
-import { ProductGrid } from "@/components/sections/product-grid";
+import { ImpactOverview } from "@/components/sections/impact-overview";
+import { ImpactReport } from "@/components/sections/impact-report";
+import { ImpactSummary } from "@/components/sections/impact-summary";
+import { RecentlyAdded } from "@/components/sections/recently-added";
+import { SocialStrip } from "@/components/sections/social-strip";
+import { StoryPanels } from "@/components/sections/story-panels";
+import { WorkGallery } from "@/components/sections/work-gallery";
 
-function ProductGridSkeleton() {
+function RecentlyAddedSkeleton() {
 	return (
-		<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-			<div className="flex items-end justify-between mb-12">
-				<div>
-					<div className="h-8 w-48 bg-secondary rounded animate-pulse" />
-					<div className="mt-2 h-5 w-64 bg-secondary rounded animate-pulse" />
-				</div>
-			</div>
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-				{Array.from({ length: 6 }).map((_, i) => (
-					<div key={`skeleton-${i}`}>
-						<div className="aspect-square bg-secondary rounded-2xl mb-4 animate-pulse" />
-						<div className="space-y-2">
-							<div className="h-5 w-3/4 bg-secondary rounded animate-pulse" />
-							<div className="h-5 w-1/4 bg-secondary rounded animate-pulse" />
+		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-16 sm:py-24">
+			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
+				<div className="mb-10 h-8 w-48 animate-pulse rounded bg-black/10" />
+				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+					{Array.from({ length: 4 }).map((_, i) => (
+						<div key={`skeleton-${i}`}>
+							<div className="mb-4 aspect-square animate-pulse rounded bg-black/10" />
+							<div className="space-y-2">
+								<div className="h-4 w-3/4 animate-pulse rounded bg-black/10" />
+								<div className="h-4 w-1/4 animate-pulse rounded bg-black/10" />
+							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</section>
 	);
@@ -32,11 +33,15 @@ export default function Home() {
 	return (
 		<main>
 			<Hero />
-			<Suspense fallback={<ProductGridSkeleton />}>
-				<ProductGrid title="Featured Products" limit={6} />
+			<ImpactOverview />
+			<ImpactReport />
+			<StoryPanels />
+			<ImpactSummary />
+			<WorkGallery />
+			<Suspense fallback={<RecentlyAddedSkeleton />}>
+				<RecentlyAdded />
 			</Suspense>
-			<About />
-			<Newsletter />
+			<SocialStrip />
 		</main>
 	);
 }

@@ -104,8 +104,8 @@ export default function RootLayout({
 	const env = process.env.VERCEL_ENV || "development";
 
 	return (
-		<html lang="en">
-			<body className={`${josefinSans.variable} ${lato.variable} antialiased`}>
+		<html lang="en" className={`${josefinSans.variable} ${lato.variable}`}>
+			<body className="antialiased">
 				<Suspense>
 					<StoreJsonLd />
 				</Suspense>
