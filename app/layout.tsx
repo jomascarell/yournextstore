@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 
+import { Info } from "lucide-react";
 import type { Metadata } from "next";
 import { Josefin_Sans, Lato } from "next/font/google";
 import { Suspense } from "react";
@@ -87,7 +88,14 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 								<Suspense>
 									<SearchInput />
 								</Suspense>
-								<div className="hidden sm:flex">
+								<div className="hidden sm:flex items-center gap-2">
+									<YnsLink
+										href="/faq"
+										aria-label="Information"
+										className="flex items-center justify-center text-black group-data-[dark=true]/header:text-white transition-colors"
+									>
+										<Info className="w-5 h-5" />
+									</YnsLink>
 									<CartButton />
 								</div>
 								<MobileNavServer />

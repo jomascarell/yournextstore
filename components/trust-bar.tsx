@@ -37,7 +37,7 @@ export function TrustBar() {
 							>
 								<Icon className="h-6 w-6 text-foreground" strokeWidth={1.5} />
 								<span className="text-base font-semibold text-foreground">{item.title}</span>
-								<span className="text-sm text-muted-foreground">{item.description}</span>
+								<span className="text-sm text-muted-foDreground">{item.description}</span>
 							</div>
 						);
 					})}

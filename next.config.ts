@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
 	/* config options here */
-	allowedDevOrigins: ["*.vercel.run", "*.yns.store", "*.yns.cx"],
+	allowedDevOrigins: ["*.vercel.run", "*.yns.store", "*.yns.cx", "100.112.1.169"],
 	reactCompiler: true,
 	cacheComponents: true,
 	turbopack: {

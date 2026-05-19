@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Search, ShoppingBag } from "lucide-react";
+import { Info, Menu, Search, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/app/cart/cart-context";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -24,6 +24,9 @@ export function MobileNav({ collections }: { collections: Collection[] }) {
 			<div className="flex items-center gap-4">
 				<YnsLink href="/search" aria-label="Search" className={iconClass}>
 					<Search className="w-5 h-5" />
+				</YnsLink>
+				<YnsLink href="/faq" aria-label="Information" className={iconClass}>
+					<Info className="w-5 h-5" />
 				</YnsLink>
 				<button type="button" aria-label="Cart" onClick={openCart} className={iconClass}>
 					<ShoppingBag className="w-5 h-5" />
