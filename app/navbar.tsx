@@ -1,35 +1,40 @@
 import { cacheLife } from "next/cache";
+import { try_ } from "safe-try";
 import { YnsLink } from "@/components/yns-link";
 import { commerce } from "@/lib/commerce";
+
+const linkClass =
+	"font-display text-base font-medium text-black group-data-[dark=true]/header:text-white transition-colors";
+const activeLinkClass = "font-semibold";
 
 export async function Navbar() {
 	"use cache";
 	cacheLife("hours");
 
-	const collections = await commerce.collectionBrowse({ limit: 5 });
+	const [, result] = await try_(commerce.collectionBrowse({ limit: 5 }));
+	const collections = result?.data ?? [];
 
 	return (
-		<nav className="hidden sm:flex items-center gap-6">
+		<nav className="hidden sm:flex items-center gap-2.5">
 			<YnsLink
 				prefetch={"eager"}
 				href="/"
-				className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+				exactHrefMatch
+				activeClassName={activeLinkClass}
+				className={linkClass}
 			>
 				Home
 			</YnsLink>
-			<YnsLink
-				prefetch={"eager"}
-				href="/products"
-				className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-			>
+			<YnsLink prefetch={"eager"} href="/products" activeClassName={activeLinkClass} className={linkClass}>
 				Products
 			</YnsLink>
-			{collections.data.map((collection) => (
+			{collections.map((collection) => (
 				<YnsLink
 					prefetch={"eager"}
 					key={collection.id}
 					href={`/collection/${collection.slug}`}
-					className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+					activeClassName={activeLinkClass}
+					className={linkClass}
 				>
 					{collection.name}
 				</YnsLink>

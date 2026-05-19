@@ -7,6 +7,8 @@ import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
 import { CartButton } from "@/app/cart-button";
 import { Footer } from "@/app/footer";
+import { HeaderNav } from "@/app/header-nav";
+import { MobileNavServer } from "@/app/mobile-nav-server";
 import { Navbar } from "@/app/navbar";
 import { SearchInput } from "@/app/search-input";
 import { ErrorOverlayRemover, NavigationReporter } from "@/components/devtools";
@@ -64,29 +66,35 @@ async function getInitialCart() {
 }
 
 async function CartProviderWrapper({ children }: { children: React.ReactNode }) {
-	const { cart, cartId } = await getInitialCart();
+	const [{ cart, cartId }, me] = await Promise.all([getInitialCart(), meGetCached()]);
+	const storeName = me.store.settings?.storeName || "Your Next Store";
 
 	return (
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<div className="flex min-h-screen flex-col">
-				<header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-						<div className="flex items-center justify-between h-16">
-							<div className="flex items-center gap-8">
-								<YnsLink prefetch={"eager"} href="/" className="text-xl font-bold">
-									Your Next Store
-								</YnsLink>
-								<Navbar />
-							</div>
+				<HeaderNav>
+					<div className="max-w-7xl mx-auto px-4 lg:px-20">
+						<div className="flex items-center justify-between h-[53px]">
+							<YnsLink
+								prefetch={"eager"}
+								href="/"
+								className="font-display text-xl font-bold text-black group-data-[dark=true]/header:text-white transition-colors"
+							>
+								{storeName}
+							</YnsLink>
+							<Navbar />
 							<div className="flex items-center gap-2">
 								<Suspense>
 									<SearchInput />
 								</Suspense>
-								<CartButton />
+								<div className="hidden sm:flex">
+									<CartButton />
+								</div>
+								<MobileNavServer />
 							</div>
 						</div>
 					</div>
-				</header>
+				</HeaderNav>
 				<div className="flex-1">{children}</div>
 				<Footer />
 				<ReferralBadge />

@@ -1,6 +1,7 @@
 "use client";
 
-import { Lock, ShoppingBag } from "lucide-react";
+import { Lock } from "lucide-react";
+import Image from "next/image";
 import { useCart } from "@/app/cart/cart-context";
 import { CartItem } from "@/app/cart/cart-item";
 import { CheckoutTrustLayer } from "@/components/checkout-trust-layer";
@@ -23,7 +24,7 @@ export function CartSidebar() {
 
 	return (
 		<Sheet open={isOpen} onOpenChange={(open) => !open && closeCart()}>
-			<SheetContent className="flex flex-col w-full sm:max-w-lg">
+			<SheetContent aria-describedby={undefined} className="flex flex-col w-full sm:max-w-lg">
 				<SheetHeader className="border-b border-border pb-4">
 					<SheetTitle className="flex items-center gap-2">
 						Tu carrito
@@ -34,21 +35,31 @@ export function CartSidebar() {
 				</SheetHeader>
 
 				{items.length === 0 ? (
-					<div className="flex-1 flex flex-col items-center justify-center gap-6 py-12 px-4 text-center">
-						<div className="flex h-20 w-20 items-center justify-center rounded-full bg-secondary">
-							<ShoppingBag className="h-10 w-10 text-muted-foreground" />
+					<div className="flex-1 flex flex-col justify-between overflow-hidden">
+						<div className="flex flex-col gap-6 pt-24 px-10">
+							<h2 className="text-5xl font-normal leading-none text-foreground">
+								Tu cesta está vacía.
+								<br />
+								¿No sabes por dónde empezar?
+							</h2>
+							<div className="flex flex-col gap-2 w-full">
+								<Button onClick={closeCart} asChild className="w-full rounded-full">
+									<a href="/products">Ver novedades</a>
+								</Button>
+								<Button variant="outline" onClick={closeCart} asChild className="w-full rounded-full">
+									<a href="/collection">Ver todas las colecciones</a>
+								</Button>
+							</div>
 						</div>
-						<div>
-							<p className="text-2xl font-semibold leading-snug">Tu cesta está vacía.</p>
-							<p className="text-2xl font-semibold leading-snug">¿No sabes por dónde empezar?</p>
-						</div>
-						<div className="flex flex-col gap-2 w-full">
-							<Button onClick={closeCart} asChild className="w-full h-11">
-								<a href="/products">Ver novedades</a>
-							</Button>
-							<Button variant="outline" onClick={closeCart} asChild className="w-full h-11">
-								<a href="/collection">Ver todas las colecciones</a>
-							</Button>
+						<div className="relative flex-1 min-h-0 mt-14">
+							<Image
+								src="/images/images-cart-sidebar/Rocher_PaulaEscribano02.jpg"
+								alt=""
+								fill
+								sizes="(max-width: 640px) 100vw, 512px"
+								className="object-cover object-top"
+								aria-hidden="true"
+							/>
 						</div>
 					</div>
 				) : (

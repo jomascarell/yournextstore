@@ -124,7 +124,7 @@ export function Footer() {
 										width={38}
 										height={24}
 										className="brightness-0 invert"
-										style={{ height: "auto" }}
+										style={{ width: "auto", maxWidth: "32px", height: "auto" }}
 									/>
 								))}
 							</div>
