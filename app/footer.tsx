@@ -19,8 +19,6 @@ const helpLinks = [
 	{ label: "Preguntas frecuentes", href: "/faq" },
 	{ label: "Guía de tallas", href: "/faq#tallas" },
 	{ label: "Cuidado de productos", href: "/faq#cuidado" },
-	{ label: "Formulario de contacto", href: "/contact" },
-	{ label: "Iniciar sesión", href: "/login" },
 ];
 
 const socialLinks = [

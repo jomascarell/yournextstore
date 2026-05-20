@@ -2,9 +2,16 @@ import { NextResponse } from "next/server";
 import { getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
 
 export async function GET() {
-	const me = await meGetCached();
-	const storeName = me.store.settings?.storeName || "Your Next Store";
-	const faviconUrl = getStoreFaviconUrl(me.store.settings) ?? "/logo.svg";
+	let storeName = "Your Next Store";
+	let faviconUrl = "/logo.svg";
+
+	try {
+		const me = await meGetCached(process.env.YNS_API_KEY);
+		storeName = me.store.settings?.storeName || storeName;
+		faviconUrl = getStoreFaviconUrl(me.store.settings) ?? faviconUrl;
+	} catch {
+		// serve fallback manifest if store data is unavailable
+	}
 
 	const manifest = {
 		name: storeName,
