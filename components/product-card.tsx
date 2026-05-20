@@ -1,7 +1,8 @@
 import type { APICollectionGetByIdResult, APIProductsBrowseResult } from "commerce-kit";
+import { buttonVariants } from "@/components/ui/button";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
-import { isVideoUrl } from "@/lib/utils";
+import { cn, isVideoUrl } from "@/lib/utils";
 import { YNSMedia } from "@/lib/yns-media";
 import { QuickAddButton } from "./quick-add-button";
 import { YnsLink } from "./yns-link";
@@ -97,7 +98,7 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 
 				{/* CTA buttons — visible only on hover */}
 				<div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-					<span className="flex h-8 w-full items-center justify-center rounded-full bg-foreground text-background text-sm font-display font-normal">
+					<span className={cn(buttonVariants({ variant: "default", size: "sm" }), "w-full")}>
 						Ver producto
 					</span>
 					{singleVariant && (
@@ -111,7 +112,7 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 								slug: product.slug,
 								images: product.images ?? [],
 							}}
-							className="flex h-8 w-full cursor-pointer items-center justify-center rounded-full border border-white bg-transparent text-white text-sm font-display font-normal transition-colors hover:bg-white/10 disabled:opacity-50"
+							className={cn(buttonVariants({ variant: "outline-white", size: "sm" }), "w-full")}
 						>
 							Añadir al carrito
 						</QuickAddButton>

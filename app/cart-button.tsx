@@ -17,7 +17,7 @@ export function CartButton() {
 			{itemCount > 0 ? (
 				<span
 					aria-live="polite"
-					className="absolute -top-1.5 -right-1.5 bg-foreground text-primary-foreground text-[10px] rounded-full w-4 h-4 flex items-center justify-center"
+					className="absolute -top-1.5 -right-1.5 bg-[#B32C1C] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center"
 				>
 					{itemCount}
 				</span>

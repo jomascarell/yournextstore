@@ -1,10 +1,15 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import type { VariantProps } from "class-variance-authority";
 import { useActionState } from "react";
 import { subscribeToNewsletter } from "@/app/newsletter/action";
+import { Button, type buttonVariants } from "@/components/ui/button";
 
-export function CtaSignUp() {
+type CtaSignUpProps = {
+	buttonVariant?: VariantProps<typeof buttonVariants>["variant"];
+};
+
+export function CtaSignUp({ buttonVariant = "default" }: CtaSignUpProps) {
 	const [state, action, isPending] = useActionState(subscribeToNewsletter, null);
 
 	if (state?.success) {
@@ -22,14 +27,9 @@ export function CtaSignUp() {
 						required
 						className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/50"
 					/>
-					<button
-						type="submit"
-						disabled={isPending}
-						className="flex shrink-0 items-center gap-2 rounded-full bg-neutral-900 px-4 py-1.5 text-sm text-white/95 transition-colors hover:bg-neutral-800 disabled:opacity-50"
-					>
-						{isPending ? "…" : "Sign in"}
-						<ArrowRight className="h-3 w-3" />
-					</button>
+					<Button type="submit" variant={buttonVariant} size="sm" disabled={isPending}>
+						{isPending ? "…" : "Suscribirse"}
+					</Button>
 				</div>
 				{state?.error && <p className="mt-2 text-xs text-red-400">{state.error}</p>}
 			</form>

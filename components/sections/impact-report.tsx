@@ -1,6 +1,6 @@
 export function ImpactReport() {
 	return (
-		<section className="relative w-full overflow-hidden" style={{ aspectRatio: "1280/644" }}>
+		<section className="relative w-full overflow-hidden h-160">
 			<div
 				className="absolute inset-0"
 				style={{

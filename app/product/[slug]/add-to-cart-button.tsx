@@ -5,9 +5,7 @@ import { useMemo, useState, useTransition } from "react";
 import { addToCart } from "@/app/cart/actions";
 import { useCart } from "@/app/cart/cart-context";
 import { QuantitySelector } from "@/app/product/[slug]/quantity-selector";
-import { TrustBadges } from "@/app/product/[slug]/trust-badges";
 import { VariantSelector } from "@/app/product/[slug]/variant-selector";
-import { useVolumePricing, VolumePricingDisplay, type VolumeTier } from "@/app/product/[slug]/volume-pricing";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 
@@ -37,10 +35,9 @@ type AddToCartButtonProps = {
 		slug: string;
 		images: string[];
 	};
-	volumePricingTiers?: VolumeTier[];
 };
 
-export function AddToCartButton({ variants, product, volumePricingTiers = [] }: AddToCartButtonProps) {
+export function AddToCartButton({ variants, product }: AddToCartButtonProps) {
 	const searchParams = useSearchParams();
 	const [quantity, setQuantity] = useState(1);
 	const [isPending, startTransition] = useTransition();
@@ -68,21 +65,18 @@ export function AddToCartButton({ variants, product, volumePricingTiers = [] }: 
 		);
 	}, [variants, searchParams]);
 
-	const { resolvedTiers, volumePrice } = useVolumePricing(volumePricingTiers, selectedVariant?.id, quantity);
-
-	const unitPrice = volumePrice ?? selectedVariant?.price;
-	const totalPrice = unitPrice ? BigInt(unitPrice) * BigInt(quantity) : null;
+	const totalPrice = selectedVariant ? BigInt(selectedVariant.price) * BigInt(quantity) : null;
 
 	const buttonText = useMemo(() => {
-		if (isPending) return "Adding...";
-		if (!selectedVariant) return "Select options";
+		if (isPending) return "Añadiendo...";
+		if (!selectedVariant) return "Selecciona opciones";
 		if (totalPrice) {
-			return `Add to Cart — ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}`;
+			return `Añadir a la cesta - ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}`;
 		}
-		return "Add to Cart";
+		return "Añadir a la cesta";
 	}, [isPending, selectedVariant, totalPrice]);
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (!selectedVariant) return;
@@ -109,24 +103,20 @@ export function AddToCartButton({ variants, product, volumePricingTiers = [] }: 
 	};
 
 	return (
-		<div className="space-y-8">
+		<div className="space-y-12">
 			{variants.length > 1 && <VariantSelector variants={variants} selectedVariantId={selectedVariant?.id} />}
 
 			<QuantitySelector quantity={quantity} onQuantityChange={setQuantity} disabled={isPending} />
-
-			<VolumePricingDisplay tiers={resolvedTiers} quantity={quantity} volumePrice={volumePrice} />
 
 			<form onSubmit={handleSubmit}>
 				<button
 					type="submit"
 					disabled={isPending || !selectedVariant}
-					className="w-full h-14 bg-foreground text-primary-foreground py-4 px-8 rounded-full text-base font-medium tracking-wide hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+					className="w-full bg-foreground text-white py-6 px-6 font-display text-base font-normal tracking-[0.01em] hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					{buttonText}
 				</button>
 			</form>
-
-			<TrustBadges />
 		</div>
 	);
 }

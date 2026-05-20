@@ -10,7 +10,8 @@ const galleryItems = [
 export function WorkGallery() {
 	return (
 		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
-			<div className="mx-auto max-w-7xl px-8 sm:px-4 lg:px-20">
+			{/* Heading: aligned to global max-w-7xl container */}
+			<div className="mx-auto max-w-7xl px-7.5 sm:px-4 lg:px-20">
 				<div className="mb-12 flex flex-col gap-1">
 					<h2 className="text-5xl font-normal leading-none text-foreground">
 						Una pequeña muestra de mi trabajo
@@ -19,9 +20,17 @@ export function WorkGallery() {
 						Piezas únicas, elaboradas con cuidado y atención al detalle.
 					</p>
 				</div>
-				<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+			</div>
+
+			{/* Cards grid: narrower max-width (978px), centered within the section */}
+			<div className="mx-auto max-w-244.5 px-7.5 sm:px-4 lg:px-20">
+				<div className="grid grid-cols-2 gap-x-8.25 gap-y-12.5 sm:grid-cols-3">
 					{galleryItems.map((item) => (
-						<div key={item.id} className="relative overflow-hidden" style={{ aspectRatio: "304/600" }}>
+						<div
+							key={item.id}
+							className="relative overflow-hidden"
+							style={{ aspectRatio: "304/600", maxHeight: "600px" }}
+						>
 							{/* TODO: Replace with gallery image — tall portrait, approx 304×600px, product/editorial photo */}
 							<div
 								className="absolute inset-0"

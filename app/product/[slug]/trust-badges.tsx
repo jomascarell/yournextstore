@@ -1,5 +1,4 @@
-import type { LucideIcon } from "lucide-react";
-import { RotateCcw, Shield, Truck } from "lucide-react";
+import { CheckCircle, Home, Lock, type LucideIcon, MessageSquare } from "lucide-react";
 
 type TrustBadge = {
 	icon: LucideIcon;
@@ -7,22 +6,39 @@ type TrustBadge = {
 	description: string;
 };
 
-const defaultBadges: TrustBadge[] = [
-	{ icon: Truck, title: "Free Shipping", description: "Orders over $500" },
-	{ icon: Shield, title: "10-Year Warranty", description: "Full coverage" },
-	{ icon: RotateCcw, title: "30-Day Returns", description: "Hassle-free" },
+const row1: TrustBadge[] = [
+	{ icon: Lock, title: "Pago seguro", description: "Cifrado SSL · Stripe" },
+	{ icon: MessageSquare, title: "Soporte real", description: "WhatsApp · Email" },
 ];
 
-export function TrustBadges({ badges = defaultBadges }: { badges?: TrustBadge[] }) {
+const row2: TrustBadge[] = [
+	{ icon: Home, title: "30d devolución", description: "Devolución en 30 días garantizada" },
+	{ icon: CheckCircle, title: "Envío gratis", description: "En pedidos desde 50€" },
+];
+
+function BadgeItem({ badge }: { badge: TrustBadge }) {
 	return (
-		<div className="grid grid-cols-3 gap-4 rounded-xl bg-secondary/50 p-4">
-			{badges.map((badge) => (
-				<div key={badge.title} className="flex flex-col items-center text-center">
-					<badge.icon className="mb-2 h-5 w-5 text-muted-foreground" />
-					<span className="text-xs font-medium">{badge.title}</span>
-					<span className="text-[10px] text-muted-foreground">{badge.description}</span>
-				</div>
-			))}
+		<div className="flex min-w-52.5 flex-col">
+			<badge.icon className="h-6 w-6 text-foreground" />
+			<p className="font-display text-base font-normal leading-none pt-4 pb-2">{badge.title}</p>
+			<p className="font-sans text-sm leading-[1.6] text-foreground">{badge.description}</p>
+		</div>
+	);
+}
+
+export function TrustBadges() {
+	return (
+		<div className="flex flex-col gap-4 py-4 px-7.5">
+			<div className="flex justify-between">
+				{row1.map((badge) => (
+					<BadgeItem key={badge.title} badge={badge} />
+				))}
+			</div>
+			<div className="flex justify-between">
+				{row2.map((badge) => (
+					<BadgeItem key={badge.title} badge={badge} />
+				))}
+			</div>
 		</div>
 	);
 }

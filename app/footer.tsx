@@ -3,6 +3,7 @@
 import { Home, Lock, MessageCircle, Truck } from "lucide-react";
 import Image from "next/image";
 import { CtaSignUp } from "@/components/cta-sign-up";
+import { Button } from "@/components/ui/button";
 import { YnsLink } from "@/components/yns-link";
 
 const trustItems = [
@@ -70,7 +71,7 @@ export function Footer() {
 							Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo,
 							eventos y más.
 						</p>
-						<CtaSignUp />
+						<CtaSignUp buttonVariant="filled-transparent" />
 					</div>
 
 					{/* Col 2: Help links */}
@@ -78,14 +79,11 @@ export function Footer() {
 						<h2 className="text-xl font-normal text-foreground">Ayuda</h2>
 						<div className="flex flex-wrap gap-2">
 							{helpLinks.map((link) => (
-								<YnsLink
-									key={link.href}
-									prefetch="eager"
-									href={link.href}
-									className="inline-flex items-center rounded-full border border-border px-4 py-1.5 text-sm text-foreground transition-colors hover:bg-foreground hover:text-background"
-								>
-									{link.label}
-								</YnsLink>
+								<Button key={link.href} variant="outline-white" size="sm" asChild>
+									<YnsLink prefetch="eager" href={link.href}>
+										{link.label}
+									</YnsLink>
+								</Button>
 							))}
 						</div>
 					</div>

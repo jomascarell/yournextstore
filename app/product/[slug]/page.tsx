@@ -3,9 +3,9 @@ import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/app/product/[slug]/add-to-cart-button";
 import { MediaGallery } from "@/app/product/[slug]/media-gallery";
-import { ProductFeatures } from "@/app/product/[slug]/product-features";
-import { ProductReviews } from "@/app/product/[slug]/product-reviews";
+import { ProductAccordions } from "@/app/product/[slug]/product-accordions";
 import { RelatedProducts } from "@/app/product/[slug]/related-products";
+import { TrustBadges } from "@/app/product/[slug]/trust-badges";
 import { TiptapRenderer } from "@/components/tiptap-renderer";
 import { commerce } from "@/lib/commerce";
 import { CURRENCY, LOCALE } from "@/lib/constants";
@@ -81,15 +81,19 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 				{/* Left: Image Gallery (sticky on desktop) */}
 				<MediaGallery images={allImages} productName={product.name} variants={product.variants} />
 
-				{/* Right: Product Details */}
-				<div className="mt-8 lg:mt-0 space-y-8">
+				{/* Right: Product Info */}
+				<div className="mt-8 lg:mt-0 space-y-12">
 					{/* Title, Price, Description */}
-					<div className="space-y-4">
-						<h1 className="text-4xl font-medium tracking-tight text-foreground lg:text-5xl text-balance">
-							{product.name}
-						</h1>
-						<p className="text-2xl font-semibold tracking-tight">{priceDisplay}</p>
-						{product.summary && <p className="text-muted-foreground leading-relaxed">{product.summary}</p>}
+					<div className="space-y-2">
+						<div>
+							<h1 className="font-display text-[36px] font-medium leading-none tracking-[0.03em] text-foreground">
+								{product.name}
+							</h1>
+							<p className="font-sans text-base font-normal text-foreground mt-1">{priceDisplay}</p>
+						</div>
+						{product.summary && (
+							<p className="font-sans text-base text-muted-foreground leading-relaxed">{product.summary}</p>
+						)}
 						{product.content && (
 							<div className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground">
 								<TiptapRenderer content={product.content} />
@@ -97,7 +101,7 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 						)}
 					</div>
 
-					{/* Variant Selector, Quantity, Add to Cart, Trust Badges */}
+					{/* Variant Selector, Quantity, Add to Cart */}
 					<AddToCartButton
 						variants={product.variants}
 						product={{
@@ -106,16 +110,15 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 							slug: product.slug,
 							images: product.images,
 						}}
-						volumePricingTiers={product.volumePricingTiers}
 					/>
+
+					{/* Trust Features */}
+					<TrustBadges />
+
+					{/* Accordions */}
+					<ProductAccordions />
 				</div>
 			</div>
-
-			{/* Reviews Section */}
-			<ProductReviews reviews={reviews} slug={slug} />
-
-			{/* Features Section (full width below) */}
-			<ProductFeatures />
 
 			{/* Related Products */}
 			<RelatedProducts productId={product.id} categorySlug={product.category?.slug} />
