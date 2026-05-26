@@ -16,7 +16,7 @@ export function SocialStrip() {
 			</div>
 
 			{/* Carousel is full-bleed — outside max-w-7xl but left-aligned with content */}
-			<div className="scrollbar-none flex gap-6 overflow-x-auto pl-7.5 sm:pl-4 lg:pl-[max(5rem,calc((100vw-80rem)/2+5rem))]">
+			<div className="scrollbar-none flex overflow-x-auto pl-7.5 sm:pl-4 lg:pl-[max(5rem,calc((100vw-80rem)/2+5rem))]">
 				{instagramPosts.map((post) => (
 					<div
 						key={post.id}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Lock, MessageCircle, Truck } from "lucide-react";
+import { Check, Home, Lock, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import { CtaSignUp } from "@/components/cta-sign-up";
 import { Button } from "@/components/ui/button";
@@ -8,9 +8,9 @@ import { YnsLink } from "@/components/yns-link";
 
 const trustItems = [
 	{ icon: Lock, title: "Pago seguro", description: "Cifrado SSl · Stripe" },
-	{ icon: MessageCircle, title: "Soporte real", description: "WhatsApp · Email" },
-	{ icon: Truck, title: "Envío Gratis", description: "En pedidos desde 50€" },
-	{ icon: Home, title: "Devolución en 30 días", description: "Sin costes, sin preguntas" },
+	{ icon: MessageCircle, title: "Soporte real", description: "WhatsApp Email" },
+	{ icon: Check, title: "Envío Gratis", description: "En pedidos desde 50€" },
+	{ icon: Home, title: "30d devolución", description: "Devolución en 30 días garantizada" },
 ];
 
 const helpLinks = [
@@ -47,14 +47,16 @@ export function Footer() {
 		<footer className="dark bg-background text-foreground">
 			<div className="mx-auto flex max-w-7xl flex-col gap-12 px-4 py-12 sm:px-6 lg:px-20">
 				{/* Trust bar */}
-				<div className="grid grid-cols-2 gap-8 border-b border-border pb-12 sm:grid-cols-4 sm:gap-24">
+				<div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-24 pb-12">
 					{trustItems.map((item) => {
 						const Icon = item.icon;
 						return (
 							<div key={item.title} className="flex flex-col gap-3">
-								<Icon className="h-6 w-6 text-foreground" strokeWidth={1.5} />
-								<h4 className="text-base font-normal text-foreground">{item.title}</h4>
-								<p className="text-sm text-muted-foreground">{item.description}</p>
+								<Icon className="h-11 w-11 text-foreground" strokeWidth={1.5} />
+								<p className="font-display text-xl min-[780px]:text-2xl leading-none font-normal text-foreground">
+									{item.title}
+								</p>
+								<p className="text-base leading-[1.6] text-foreground">{item.description}</p>
 							</div>
 						);
 					})}
@@ -64,17 +66,19 @@ export function Footer() {
 				<div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-24">
 					{/* Col 1: Newsletter */}
 					<div className="flex flex-col gap-4">
-						<h2 className="text-xl font-normal text-foreground">Suscripción al boletín</h2>
+						<h2 className="text-2xl leading-none font-normal text-foreground">Suscripción al boletín</h2>
 						<p className="text-sm leading-relaxed text-muted-foreground">
 							Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo,
 							eventos y más.
 						</p>
-						<CtaSignUp buttonVariant="filled-transparent" />
+						<div className="max-w-100">
+							<CtaSignUp buttonVariant="outline-white" />
+						</div>
 					</div>
 
 					{/* Col 2: Help links */}
 					<div className="flex flex-col gap-4">
-						<h2 className="text-xl font-normal text-foreground">Ayuda</h2>
+						<h2 className="text-2xl leading-none font-normal text-foreground">Ayuda</h2>
 						<div className="flex flex-wrap gap-2">
 							{helpLinks.map((link) => (
 								<Button key={link.href} variant="outline-white" size="sm" asChild>
@@ -86,14 +90,10 @@ export function Footer() {
 						</div>
 					</div>
 
-					{/* Col 3: Language / Social / Info */}
+					{/* Col 3: Social / Info */}
 					<div className="flex flex-col gap-8">
 						<div>
-							<h2 className="text-xl font-normal text-foreground">Idioma (si aplica)</h2>
-							<p className="mt-2 text-sm text-muted-foreground">ES/EUR</p>
-						</div>
-						<div>
-							<h2 className="text-xl font-normal text-foreground">Conecta</h2>
+							<h2 className="text-2xl leading-none font-normal text-foreground">Conecta</h2>
 							<ul className="mt-3 space-y-1.5">
 								{socialLinks.map((link) => (
 									<li key={link.label}>
@@ -109,7 +109,7 @@ export function Footer() {
 							</ul>
 						</div>
 						<div>
-							<h2 className="text-xl font-normal text-foreground">Información</h2>
+							<h2 className="text-2xl leading-none font-normal text-foreground">Información</h2>
 							<p className="mt-2 text-sm text-muted-foreground">Formas de pago aceptadas</p>
 							<div className="mt-3 flex flex-wrap items-center gap-3">
 								{paymentMethods.map((method) => (
@@ -129,7 +129,7 @@ export function Footer() {
 				</div>
 
 				{/* Bottom legal bar */}
-				<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-border pt-6 text-xs text-muted-foreground">
+				<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-6 text-xs text-muted-foreground">
 					{legalLinks.map((link) => (
 						<YnsLink
 							key={link.href}
@@ -140,7 +140,7 @@ export function Footer() {
 							{link.label}
 						</YnsLink>
 					))}
-					<span>&copy; {new Date().getFullYear()} Your Next Store, Inc. Todos los derechos reservados.</span>
+					<span>&copy; {new Date().getFullYear()} Joies Laia, Inc. Todos los derechos reservados.</span>
 				</div>
 			</div>
 		</footer>

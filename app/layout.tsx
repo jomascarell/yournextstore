@@ -74,32 +74,31 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<div className="flex min-h-screen flex-col">
 				<HeaderNav>
-					<div className="max-w-7xl mx-auto px-4 lg:px-20">
-						<div className="flex items-center justify-between h-[53px]">
-							<YnsLink
-								prefetch={"eager"}
-								href="/"
-								className="font-display text-xl font-bold text-black group-data-[dark=true]/header:text-white transition-colors"
-							>
-								{storeName}
-							</YnsLink>
+					<div className="grid grid-cols-[1fr_auto_1fr] items-center h-18.25 px-7.5 sm:px-20 max-sm:h-19.25">
+						{/* Left: nav links (desktop) / hamburger (mobile) */}
+						<div className="flex items-center">
 							<Navbar />
-							<div className="flex items-center gap-2">
-								<Suspense>
-									<SearchInput />
-								</Suspense>
-								<div className="hidden sm:flex items-center gap-2">
-									<YnsLink
-										href="/faq"
-										aria-label="Information"
-										className="flex items-center justify-center text-black group-data-[dark=true]/header:text-white transition-colors"
-									>
-										<Info className="w-5 h-5" />
-									</YnsLink>
-									<CartButton />
-								</div>
-								<MobileNavServer />
-							</div>
+							<MobileNavServer />
+						</div>
+
+						{/* Center: logo / store name */}
+						<YnsLink prefetch={"eager"} href="/" className="font-display text-xl font-bold text-[#0E100E]">
+							{storeName}
+						</YnsLink>
+
+						{/* Right: icons */}
+						<div className="flex items-center justify-end gap-3">
+							<Suspense>
+								<SearchInput />
+							</Suspense>
+							<YnsLink
+								href="/faq"
+								aria-label="Information"
+								className="flex items-center justify-center text-[#0E100E]"
+							>
+								<Info className="w-5 h-5" />
+							</YnsLink>
+							<CartButton />
 						</div>
 					</div>
 				</HeaderNav>

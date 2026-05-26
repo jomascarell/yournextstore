@@ -1,4 +1,9 @@
-import { CtaSignUp } from "@/components/cta-sign-up";
+// import { CtaSignUp } from "@/components/cta-sign-up";
+{
+	/* <div className="flex flex-col items-center gap-3 w-full max-w-[500px]">
+					<CtaSignUp />
+				</div> */
+}
 
 export function Hero() {
 	return (
@@ -19,10 +24,6 @@ export function Hero() {
 					Sé el primero en enterarte de las nuevas colecciones, los eventos especiales y las novedades de
 					bella
 				</h1>
-
-				<div className="flex flex-col items-center gap-3 w-full max-w-[500px]">
-					<CtaSignUp />
-				</div>
 			</div>
 		</section>
 	);

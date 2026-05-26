@@ -10,7 +10,7 @@ export function CartButton() {
 		<button
 			type="button"
 			onClick={openCart}
-			className="relative flex items-center justify-center text-black group-data-[dark=true]/header:text-white transition-colors"
+			className="relative flex items-center justify-center text-[#0E100E] transition-colors"
 			aria-label="Shopping cart"
 		>
 			<ShoppingBag className="w-5 h-5" />

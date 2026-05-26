@@ -3,8 +3,7 @@ import { try_ } from "safe-try";
 import { YnsLink } from "@/components/yns-link";
 import { commerce } from "@/lib/commerce";
 
-const linkClass =
-	"font-display text-base font-medium text-black group-data-[dark=true]/header:text-white transition-colors";
+const linkClass = "font-display text-base font-medium text-[#0E100E] transition-colors";
 const activeLinkClass = "font-semibold";
 
 export async function Navbar() {

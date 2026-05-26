@@ -26,7 +26,7 @@ export function CartSidebar() {
 		<Sheet open={isOpen} onOpenChange={(open) => !open && closeCart()}>
 			<SheetContent aria-describedby={undefined} className="flex flex-col w-full sm:max-w-lg gap-0">
 				{/* Header */}
-				<SheetHeader className="flex-none border-b border-border px-4 py-6">
+				<SheetHeader className="flex-none px-4 pt-12 pb-6">
 					<SheetTitle className="font-display text-2xl font-normal leading-none text-foreground">
 						Cesta
 						{itemCount > 0 && (
@@ -38,13 +38,13 @@ export function CartSidebar() {
 				{items.length === 0 ? (
 					/* Empty cart */
 					<div className="flex-1 flex flex-col justify-between overflow-hidden">
-						<div className="flex flex-col gap-12 px-10 pt-24">
-							<h2 className="text-5xl font-normal leading-none text-foreground">
+						<div className="flex flex-col gap-12 px-6 pt-6">
+							<h2 className="text-4xl font-normal leading-none text-foreground">
 								Tu cesta está vacía.
 								<br />
 								¿No sabes por dónde empezar?
 							</h2>
-							<div className="flex flex-col gap-2 w-full">
+							<div className="flex flex-col gap-3 w-full">
 								<Button
 									onClick={closeCart}
 									asChild
@@ -53,10 +53,10 @@ export function CartSidebar() {
 									<a href="/products">Ver novedades</a>
 								</Button>
 								<Button
-									variant="outline"
+									variant="link"
 									onClick={closeCart}
 									asChild
-									className="w-full h-7.5 rounded-full font-display text-base font-normal"
+									className="w-full font-display text-base font-normal"
 								>
 									<a href="/collection">Ver todas las colecciones</a>
 								</Button>
