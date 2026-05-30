@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 const galleryItems = [
 	{ id: 1, label: "Selección Del Artista", href: "/piezas/1" },
 	{ id: 2, label: "Novedades", href: "/piezas/2" },
@@ -84,16 +86,14 @@ export function WorkGallery() {
                   motion-reduce:transition-none motion-reduce:translate-y-0
                 "
 							>
-								<span
-									className="
-                    inline-block cursor-pointer px-6 py-2.5 text-white text-sm
-                    rounded-3xl border-t-[0.5px] border-r-2 border-b-4 border-white
-                    transition-colors duration-200
-                    hover:bg-white hover:text-[#0E100E]
-                  "
+								<Button
+									variant="outline-white"
+									className="pointer-events-none group-hover:pointer-events-auto"
+									tabIndex={-1}
+									aria-hidden="true"
 								>
 									Ver colección
-								</span>
+								</Button>
 							</div>
 						</a>
 					))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertCircleIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { YnsLink } from "@/components/yns-link";
 
 export default function GlobalError({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -16,19 +17,12 @@ export default function GlobalError({ reset }: { error: Error & { digest?: strin
 				An unexpected error occurred. Please try again or return to the store.
 			</p>
 			<div className="mt-8 flex items-center gap-4">
-				<button
-					type="button"
-					onClick={reset}
-					className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
-				>
+				<Button type="button" onClick={reset} variant="default">
 					Try Again
-				</button>
-				<YnsLink
-					href="/"
-					className="inline-flex items-center rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
-				>
-					Continue Shopping
-				</YnsLink>
+				</Button>
+				<Button variant="outline" asChild>
+					<YnsLink href="/">Continue Shopping</YnsLink>
+				</Button>
 			</div>
 		</div>
 	);

@@ -3,6 +3,7 @@
 import { Star } from "lucide-react";
 import { useActionState, useState } from "react";
 import { submitReview } from "@/app/product/[slug]/review-action";
+import { Button } from "@/components/ui/button";
 
 function StarInput({ value, onChange }: { value: number; onChange: (v: number) => void }) {
 	const [hovered, setHovered] = useState(0);
@@ -101,13 +102,9 @@ export function ReviewForm({ slug }: { slug: string }) {
 
 			{state?.error && <p className="text-sm text-red-600">{state.error}</p>}
 
-			<button
-				type="submit"
-				disabled={isPending || rating === 0}
-				className="rounded-md bg-foreground px-6 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50"
-			>
+			<Button type="submit" variant="default" disabled={isPending || rating === 0}>
 				{isPending ? "Submitting..." : "Submit Review"}
-			</button>
+			</Button>
 		</form>
 	);
 }

@@ -4,6 +4,7 @@ import { SlidersHorizontal, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 const sortOptions = [
@@ -13,17 +14,19 @@ const sortOptions = [
 	{ value: "name", label: "Nombres: A-Z" },
 ] as const;
 
+type SelectedCategory = { slug: string; name: string };
+
 type Props = {
 	currentSort?: string;
 	currentCategory?: string;
-	currentCategoryName?: string;
+	selectedCategories: SelectedCategory[];
 	filterPanelContent: React.ReactNode;
 };
 
 export function ProductsInteractive({
 	currentSort,
 	currentCategory,
-	currentCategoryName,
+	selectedCategories,
 	filterPanelContent,
 }: Props) {
 	const router = useRouter();
@@ -43,13 +46,20 @@ export function ProductsInteractive({
 		return buildUrl({ sort: value === "newest" ? null : value });
 	}
 
-	function handleRemoveCategory() {
+	function handleRemoveCategory(slugToRemove: string) {
+		const remaining = selectedCategories
+			.filter((c) => c.slug !== slugToRemove)
+			.map((c) => c.slug)
+			.join(",");
+		router.push(buildUrl({ category: remaining || null }));
+	}
+
+	function handleClearAll() {
 		router.push(buildUrl({ category: null }));
 	}
 
 	const activeSort = currentSort ?? "newest";
-	const hasActiveFilters = !!currentCategory;
-	const chipLabel = currentCategoryName ?? currentCategory ?? "";
+	const hasActiveFilters = selectedCategories.length > 0;
 
 	return (
 		<>
@@ -75,34 +85,41 @@ export function ProductsInteractive({
 					</div>
 
 					{/* Filter button — mobile/tablet only */}
-					<button
+					<Button
 						type="button"
+						variant="outline"
+						size="sm"
 						onClick={() => setDrawerOpen(true)}
-						className="lg:hidden bg-white border border-[#bcbcbc] flex items-center gap-1.5 px-3 h-7 text-sm text-[#050605] font-['Lato',sans-serif] shrink-0"
+						className="lg:hidden shrink-0"
 					>
 						<SlidersHorizontal className="size-4" />
 						Filtrar
-					</button>
+					</Button>
 				</div>
 
-				{/* Row 2: "no filters" note or active chip */}
+				{/* Row 2: "no filters" note or active chips */}
 				{!hasActiveFilters ? (
-					<p className="text-sm font-['Lato',sans-serif] text-[#353635]">No se han aplicado filtros</p>
+					<p className="text-sm font-['Lato',sans-serif] text-[#A8A9A8]">No se han aplicado filtros</p>
 				) : (
-					<div className="flex items-center gap-4">
-						<div className="border border-[#bcbcbc] flex items-center gap-2 px-2.5 py-0.5 rounded-full">
-							<span className="text-sm text-[#0e100e] font-['Lato',sans-serif]">{chipLabel}</span>
-							<button type="button" onClick={handleRemoveCategory} aria-label="Eliminar filtro de categoría">
-								<X className="size-2.5 text-[#0e100e]" />
-							</button>
-						</div>
-						<button
-							type="button"
-							onClick={handleRemoveCategory}
-							className="font-['Lato',sans-serif] font-bold text-sm text-[#050605] underline"
-						>
-							Borrar
-						</button>
+					<div className="flex items-center gap-2 flex-wrap">
+						{selectedCategories.map((cat) => (
+							<div
+								key={cat.slug}
+								className="border border-[#bcbcbc] flex items-center gap-2 px-2.5 py-0.5 rounded-full"
+							>
+								<span className="text-sm text-[#0e100e] font-['Lato',sans-serif]">{cat.name}</span>
+								<button
+									type="button"
+									onClick={() => handleRemoveCategory(cat.slug)}
+									aria-label={`Eliminar filtro ${cat.name}`}
+								>
+									<X className="size-2.5 text-[#0e100e]" />
+								</button>
+							</div>
+						))}
+						<Button type="button" variant="link" size="sm" onClick={handleClearAll}>
+							Borrar todo
+						</Button>
 					</div>
 				)}
 			</div>

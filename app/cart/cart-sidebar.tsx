@@ -1,6 +1,6 @@
 "use client";
 
-import { Lock } from "lucide-react";
+import { Truck } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/app/cart/cart-context";
 import { CartItem } from "@/app/cart/cart-item";
@@ -12,7 +12,8 @@ import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 
 const FREE_SHIPPING_THRESHOLD = BigInt(8000); // 80€ en céntimos
-const LOCK_GREEN = "rgb(45,106,79)";
+const SHIPPING_GREEN = "rgb(45,106,79)";
+const SHIPPING_BG = "rgb(216,243,220)";
 
 export function CartSidebar() {
 	const { isOpen, closeCart, items, itemCount, subtotal } = useCart();
@@ -30,7 +31,7 @@ export function CartSidebar() {
 					<SheetTitle className="font-display text-2xl font-normal leading-none text-foreground">
 						Cesta
 						{itemCount > 0 && (
-							<span className="font-sans text-base font-normal text-muted-foreground"> ({itemCount})</span>
+							<span className="font-display text-2xl font-normal text-foreground"> ({itemCount})</span>
 						)}
 					</SheetTitle>
 				</SheetHeader>
@@ -75,31 +76,37 @@ export function CartSidebar() {
 					</div>
 				) : (
 					<>
-						{/* Free shipping progress bar */}
-						<div className="flex-none px-4 pt-4 pb-4">
+						{/* Free shipping progress */}
+						<div className="flex-none px-4 pt-2 pb-4">
 							<div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
 								<div
 									className="h-full rounded-full bg-foreground transition-all duration-500"
 									style={{ width: `${progress}%` }}
 								/>
 							</div>
-							<p className="mt-2 text-center font-sans text-sm text-foreground">
-								{hasFreeShipping ? (
-									"¡Enhorabuena! Tienes envío gratuito."
-								) : (
-									<>
-										Te faltan{" "}
-										<span className="font-semibold">
-											{formatMoney({ amount: remaining, currency: CURRENCY, locale: LOCALE })}
-										</span>{" "}
-										para conseguir el envío gratis
-									</>
-								)}
-							</p>
+							{hasFreeShipping ? (
+								<div
+									className="mt-3 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2"
+									style={{ backgroundColor: SHIPPING_BG, border: `0.2px solid ${SHIPPING_GREEN}` }}
+								>
+									<Truck className="h-4 w-4 shrink-0" style={{ color: SHIPPING_GREEN }} />
+									<span className="font-sans text-sm" style={{ color: SHIPPING_GREEN }}>
+										¡Enhorabuena! Tienes envío gratuito.
+									</span>
+								</div>
+							) : (
+								<p className="mt-2 text-center font-sans text-sm text-foreground">
+									Te faltan{" "}
+									<span className="font-semibold">
+										{formatMoney({ amount: remaining, currency: CURRENCY, locale: LOCALE })}
+									</span>{" "}
+									para conseguir el envío gratis
+								</p>
+							)}
 						</div>
 
 						{/* Cart items */}
-						<ScrollArea className="flex-1 px-4">
+						<ScrollArea className="min-h-0 flex-1 px-4">
 							<div className="divide-y divide-border">
 								{items.map((item) => (
 									<CartItem key={item.productVariant.id} item={item} />
@@ -108,7 +115,7 @@ export function CartSidebar() {
 						</ScrollArea>
 
 						{/* Footer */}
-						<SheetFooter className="flex-none gap-6 border-t border-border px-4 py-4">
+						<SheetFooter className="flex-none gap-5 border-t border-border px-4 py-4">
 							{/* Subtotal */}
 							<div className="flex items-center justify-between">
 								<span className="font-sans text-sm text-muted-foreground">Subtotal</span>
@@ -118,7 +125,7 @@ export function CartSidebar() {
 							</div>
 
 							{/* Shipping — border-bottom separates from total */}
-							<div className="flex items-center justify-between border-b border-border pb-3">
+							<div className="flex items-center justify-between border-b border-border pb-4">
 								<span className="font-sans text-sm text-muted-foreground">Envío</span>
 								<span className="font-sans text-sm text-muted-foreground">Calculado en el checkout</span>
 							</div>
@@ -131,21 +138,26 @@ export function CartSidebar() {
 								</span>
 							</div>
 
-							{/* Trust elements */}
+							{/* Trust bar */}
 							<CheckoutTrustLayer />
 
 							{/* CTA buttons */}
-							<div className="flex flex-col gap-3">
-								<Button asChild className="w-full rounded-none font-display text-base font-normal py-4 px-6">
+							<div className="flex flex-col gap-2">
+								<Button
+									asChild
+									className="w-full rounded-none font-display text-base font-normal py-4 px-6 gap-3"
+								>
 									<a href={checkoutUrl}>
-										<Lock className="h-3 w-3 shrink-0" style={{ color: LOCK_GREEN }} />
-										Pagar de forma segura
+										<span>Pagar ahora</span>
+										<span className="font-regular">
+											{formatMoney({ amount: subtotal, currency: CURRENCY, locale: LOCALE })}
+										</span>
 									</a>
 								</Button>
 								<Button
-									variant="outline"
+									variant="link"
 									onClick={closeCart}
-									className="w-full h-8 rounded-3xl font-display text-base font-normal"
+									className="w-full h-8 font-display text-base font-normal underline underline-offset-4"
 								>
 									Seguir comprando
 								</Button>

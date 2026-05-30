@@ -1,0 +1,227 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "Products" [ref=e8] [cursor=pointer]:
+            - /url: /products
+          - link "Example" [ref=e9] [cursor=pointer]:
+            - /url: /collection/example
+        - link "Joies Laia" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e11]:
+          - button "Abrir buscador" [ref=e12]:
+            - img [ref=e13]
+            - generic [ref=e16]: Buscar...
+          - link "Information" [ref=e17] [cursor=pointer]:
+            - /url: /faq
+            - img [ref=e18]
+          - button "Shopping cart" [ref=e20]:
+            - img [ref=e21]
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Todos los productos" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Explora nuestra colección completa
+      - generic [ref=e29]:
+        - complementary [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e33]: Filtros
+            - generic [ref=e34]:
+              - group [ref=e35]:
+                - generic "Categorías" [ref=e36] [cursor=pointer]:
+                  - generic [ref=e37]: Categorías
+                  - img [ref=e38]
+                - generic [ref=e40]:
+                  - link "Apparel" [ref=e41] [cursor=pointer]:
+                    - /url: /products?category=apparel
+                    - generic [ref=e43]: Apparel
+                  - link "Footwear" [ref=e44] [cursor=pointer]:
+                    - /url: /products?category=footwear
+                    - generic [ref=e46]: Footwear
+                  - link "Accessories" [ref=e47] [cursor=pointer]:
+                    - /url: /products?category=accessories
+                    - generic [ref=e49]: Accessories
+              - group [ref=e50]:
+                - generic "Colecciones" [ref=e51] [cursor=pointer]:
+                  - generic [ref=e52]: Colecciones
+                  - img [ref=e53]
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e58]:
+              - link "Más recientes" [ref=e59] [cursor=pointer]:
+                - /url: /products
+              - 'link "Precio: de menor a mayor" [ref=e60] [cursor=pointer]':
+                - /url: /products?sort=price-asc
+              - 'link "Precio: de mayor a menor" [ref=e61] [cursor=pointer]':
+                - /url: /products?sort=price-desc
+              - 'link "Nombres: A-Z" [ref=e62] [cursor=pointer]':
+                - /url: /products?sort=name
+            - paragraph [ref=e63]: No se han aplicado filtros
+          - generic [ref=e64]:
+            - link "Ver Cràter Añadir Cràter a la cesta Cràter Apparel $36.00" [ref=e65] [cursor=pointer]:
+              - /url: /product/crater
+              - generic [ref=e70]:
+                - button "Ver Cràter": Ver producto
+                - button "Añadir Cràter a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e71]:
+                - paragraph [ref=e72]: Cràter
+                - paragraph [ref=e73]: Apparel
+                - paragraph [ref=e74]: $36.00
+            - link "Ver Zero Gravity Tee Añadir Zero Gravity Tee a la cesta Zero Gravity Tee Apparel $79.99" [ref=e75] [cursor=pointer]:
+              - /url: /product/zero-gravity-tee
+              - generic [ref=e80]:
+                - button "Ver Zero Gravity Tee": Ver producto
+                - button "Añadir Zero Gravity Tee a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e81]:
+                - paragraph [ref=e82]: Zero Gravity Tee
+                - paragraph [ref=e83]: Apparel
+                - paragraph [ref=e84]: $79.99
+            - link "Ver Phantom Duffle Bag Añadir Phantom Duffle Bag a la cesta Phantom Duffle Bag Accessories $119.99" [ref=e85] [cursor=pointer]:
+              - /url: /product/phantom-duffle-bag
+              - generic [ref=e89]:
+                - button "Ver Phantom Duffle Bag": Ver producto
+                - button "Añadir Phantom Duffle Bag a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e90]:
+                - paragraph [ref=e91]: Phantom Duffle Bag
+                - paragraph [ref=e92]: Accessories
+                - paragraph [ref=e93]: $119.99
+            - link "Ver Vector Tech Pants Añadir Vector Tech Pants a la cesta Vector Tech Pants Apparel $129.99" [ref=e94] [cursor=pointer]:
+              - /url: /product/vector-tech-pants
+              - generic [ref=e98]:
+                - button "Ver Vector Tech Pants": Ver producto
+                - button "Añadir Vector Tech Pants a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e99]:
+                - paragraph [ref=e100]: Vector Tech Pants
+                - paragraph [ref=e101]: Apparel
+                - paragraph [ref=e102]: $129.99
+            - link "Ver Glow Grid Beanie Añadir Glow Grid Beanie a la cesta Glow Grid Beanie Accessories $59.99" [ref=e103] [cursor=pointer]:
+              - /url: /product/glow-grid-beanie
+              - generic [ref=e107]:
+                - button "Ver Glow Grid Beanie": Ver producto
+                - button "Añadir Glow Grid Beanie a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e108]:
+                - paragraph [ref=e109]: Glow Grid Beanie
+                - paragraph [ref=e110]: Accessories
+                - paragraph [ref=e111]: $59.99
+            - link "Ver Apex Runner Sneakers Añadir Apex Runner Sneakers a la cesta Apex Runner Sneakers Footwear $199.99" [ref=e112] [cursor=pointer]:
+              - /url: /product/apex-runner-sneakers
+              - generic [ref=e116]:
+                - button "Ver Apex Runner Sneakers": Ver producto
+                - button "Añadir Apex Runner Sneakers a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e117]:
+                - paragraph [ref=e118]: Apex Runner Sneakers
+                - paragraph [ref=e119]: Footwear
+                - paragraph [ref=e120]: $199.99
+            - link "Ver Shadow Serpent Hoodie Añadir Shadow Serpent Hoodie a la cesta Shadow Serpent Hoodie Apparel $149.99" [ref=e121] [cursor=pointer]:
+              - /url: /product/shadow-serpent-hoodie
+              - generic [ref=e125]:
+                - button "Ver Shadow Serpent Hoodie": Ver producto
+                - button "Añadir Shadow Serpent Hoodie a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: Shadow Serpent Hoodie
+                - paragraph [ref=e128]: Apparel
+                - paragraph [ref=e129]: $149.99
+    - contentinfo [ref=e130]:
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - img [ref=e134]
+            - paragraph [ref=e137]: Pago seguro
+            - paragraph [ref=e138]: Cifrado SSl · Stripe
+          - generic [ref=e139]:
+            - img [ref=e140]
+            - paragraph [ref=e142]: Soporte real
+            - paragraph [ref=e143]: WhatsApp Email
+          - generic [ref=e144]:
+            - img [ref=e145]
+            - paragraph [ref=e147]: Envío Gratis
+            - paragraph [ref=e148]: En pedidos desde 50€
+          - generic [ref=e149]:
+            - img [ref=e150]
+            - paragraph [ref=e153]: 30d devolución
+            - paragraph [ref=e154]: Devolución en 30 días garantizada
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - heading "Suscripción al boletín" [level=2] [ref=e157]
+            - paragraph [ref=e158]: Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo, eventos y más.
+            - generic [ref=e159]:
+              - generic [ref=e161]:
+                - textbox "@tucorreo" [ref=e162]
+                - button "Suscribirse" [ref=e163] [cursor=pointer]
+              - paragraph [ref=e164]: Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados, historias originales, eventos y más de acuerdo con la política de privacidad.
+          - generic [ref=e165]:
+            - heading "Ayuda" [level=2] [ref=e166]
+            - generic [ref=e167]:
+              - link "Envío" [ref=e168] [cursor=pointer]:
+                - /url: /faq#envio
+              - link "Devoluciones" [ref=e169] [cursor=pointer]:
+                - /url: /faq#devoluciones
+              - link "Preguntas frecuentes" [ref=e170] [cursor=pointer]:
+                - /url: /faq
+              - link "Guía de tallas" [ref=e171] [cursor=pointer]:
+                - /url: /faq#tallas
+              - link "Cuidado de productos" [ref=e172] [cursor=pointer]:
+                - /url: /faq#cuidado
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - heading "Conecta" [level=2] [ref=e175]
+              - list [ref=e176]:
+                - listitem [ref=e177]:
+                  - link "WhatsApp" [ref=e178] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e179]:
+                  - link "Instagram" [ref=e180] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e181]:
+                  - link "Pinterest" [ref=e182] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e183]:
+                  - link "Email" [ref=e184] [cursor=pointer]:
+                    - /url: mailto:hola@yournextstore.com
+            - generic [ref=e185]:
+              - heading "Información" [level=2] [ref=e186]
+              - paragraph [ref=e187]: Formas de pago aceptadas
+              - generic:
+                - img "Visa"
+                - img "Mastercard"
+                - img "Apple Pay"
+                - img "Google Pay"
+                - img "PayPal"
+        - generic [ref=e188]:
+          - link "Política de privacidad" [ref=e189] [cursor=pointer]:
+            - /url: /legal/privacy-policy
+          - link "Política de cookies" [ref=e190] [cursor=pointer]:
+            - /url: /legal/cookies
+          - link "Términos de uso" [ref=e191] [cursor=pointer]:
+            - /url: /legal/terms
+          - generic [ref=e192]: © 2026 Joies Laia, Inc. Todos los derechos reservados.
+    - link "Made with YNS" [ref=e193] [cursor=pointer]:
+      - /url: https://yournextstore.com/?utm_source=yns-store&utm_medium=referral&utm_campaign=dark-neon-drop-12
+      - img [ref=e194]
+      - generic [ref=e197]: Made with YNS
+  - button "Open Next.js Dev Tools" [ref=e203] [cursor=pointer]:
+    - img [ref=e204]
+  - alert [ref=e207]

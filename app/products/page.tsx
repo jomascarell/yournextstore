@@ -45,20 +45,70 @@ async function ProductList({
 	const currentPage = Math.max(1, Number(page) || 1);
 	const offset = (currentPage - 1) * PRODUCTS_PER_PAGE;
 	const sortOption = sortOptions.find((s) => s.value === sort) ?? sortOptions[0];
+	const categorySlugs = category?.split(",").filter(Boolean) ?? [];
 
-	const result = await commerce.productBrowse({
-		active: true,
-		limit: PRODUCTS_PER_PAGE,
-		offset,
-		orderBy: sortOption.orderBy,
-		orderDirection: sortOption.orderDirection,
-		...(category ? { category } : {}),
-		...(query ? { query } : {}),
-	});
+	let products: Awaited<ReturnType<typeof commerce.productBrowse>>["data"] = [];
+	let totalCount = 0;
 
-	const totalPages = Math.ceil(result.meta.count / PRODUCTS_PER_PAGE);
+	if (categorySlugs.length <= 1) {
+		// Single category or no category — standard paginated fetch
+		const result = await commerce.productBrowse({
+			active: true,
+			limit: PRODUCTS_PER_PAGE,
+			offset,
+			orderBy: sortOption.orderBy,
+			orderDirection: sortOption.orderDirection,
+			...(categorySlugs[0] ? { category: categorySlugs[0] } : {}),
+			...(query ? { query } : {}),
+		});
+		products = result.data;
+		totalCount = result.meta.count;
+	} else {
+		// Multiple categories — fetch all products per category (paginated), merge and deduplicate.
+		// The API enforces a max limit; we page through in batches until exhausted.
+		const BATCH = PRODUCTS_PER_PAGE; // safe known-good page size
 
-	if (result.data.length === 0) {
+		async function fetchAllForSlug(
+			slug: string,
+		): Promise<Awaited<ReturnType<typeof commerce.productBrowse>>["data"]> {
+			const all: Awaited<ReturnType<typeof commerce.productBrowse>>["data"] = [];
+			let currentOffset = 0;
+			while (true) {
+				const result = await commerce.productBrowse({
+					active: true,
+					limit: BATCH,
+					offset: currentOffset,
+					orderBy: sortOption.orderBy,
+					orderDirection: sortOption.orderDirection,
+					category: slug,
+					...(query ? { query } : {}),
+				});
+				all.push(...result.data);
+				// Stop when we've received fewer items than we asked for
+				if (result.data.length < BATCH) break;
+				currentOffset += BATCH;
+			}
+			return all;
+		}
+
+		// Fetch all categories in parallel
+		const perCategory = await Promise.all(categorySlugs.map(fetchAllForSlug));
+
+		// Deduplicate by product id
+		const seen = new Set<string>();
+		const merged = perCategory.flat().filter((p) => {
+			if (seen.has(p.id)) return false;
+			seen.add(p.id);
+			return true;
+		});
+
+		totalCount = merged.length;
+		products = merged.slice(offset, offset + PRODUCTS_PER_PAGE);
+	}
+
+	const totalPages = Math.ceil(totalCount / PRODUCTS_PER_PAGE);
+
+	if (products.length === 0) {
 		return (
 			<div className="py-24 text-center">
 				<p className="text-lg text-muted-foreground">
@@ -78,7 +128,7 @@ async function ProductList({
 	return (
 		<>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-12">
-				{result.data.map((product, i) => (
+				{products.map((product, i) => (
 					<ProductCard key={product.id} product={product} priority={i < 3} />
 				))}
 			</div>
@@ -117,9 +167,13 @@ export default async function ProductsPage({
 }) {
 	const { page, sort, category, query } = await searchParams;
 
-	// Resolve category display name for the active filter chip
+	// Resolve display names for active filter chips (multi-select)
 	const categoriesResult = await getCategories();
-	const currentCategoryName = categoriesResult.data.find((c) => c.slug === category)?.name;
+	const categorySlugs = category?.split(",").filter(Boolean) ?? [];
+	const selectedCategories = categorySlugs.map((slug) => {
+		const found = categoriesResult.data.find((c) => c.slug === slug);
+		return found ? { slug: found.slug, name: found.name } : { slug, name: slug };
+	});
 
 	return (
 		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -143,7 +197,7 @@ export default async function ProductsPage({
 					<ProductsInteractive
 						currentSort={sort}
 						currentCategory={category}
-						currentCategoryName={currentCategoryName}
+						selectedCategories={selectedCategories}
 						filterPanelContent={
 							<FilterPanel currentCategory={category} currentSort={sort} showTitle={false} />
 						}

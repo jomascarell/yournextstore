@@ -18,11 +18,15 @@ function buildCategoryUrl({
 	currentSort?: string;
 	toggleSlug: string;
 }) {
+	const selectedSlugs = currentCategory?.split(",").filter(Boolean) ?? [];
+	const isSelected = selectedSlugs.includes(toggleSlug);
+	const newSlugs = isSelected
+		? selectedSlugs.filter((s) => s !== toggleSlug)
+		: [...selectedSlugs, toggleSlug];
+
 	const params = new URLSearchParams();
 	if (currentSort) params.set("sort", currentSort);
-	if (currentCategory !== toggleSlug) {
-		params.set("category", toggleSlug);
-	}
+	if (newSlugs.length > 0) params.set("category", newSlugs.join(","));
 	const qs = params.size ? `?${params.toString()}` : "";
 	return `/products${qs}`;
 }
@@ -47,7 +51,8 @@ export async function FilterPanel({
 }) {
 	const categoriesResult = await getCategories();
 	const categories = categoriesResult.data;
-	const hasFilters = !!currentCategory;
+	const selectedSlugs = currentCategory?.split(",").filter(Boolean) ?? [];
+	const hasFilters = selectedSlugs.length > 0;
 	const clearUrl = buildClearUrl({ currentSort });
 
 	return (
@@ -95,7 +100,7 @@ export async function FilterPanel({
 						</summary>
 						<div className="flex flex-col pb-3">
 							{categories.map((category) => {
-								const isSelected = currentCategory === category.slug;
+								const isSelected = selectedSlugs.includes(category.slug);
 								const href = buildCategoryUrl({
 									currentCategory,
 									currentSort,

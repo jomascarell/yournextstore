@@ -3,6 +3,7 @@
 import { ArrowRightIcon, CheckIcon } from "lucide-react";
 import { useActionState } from "react";
 import { subscribeToNewsletter } from "@/app/newsletter/action";
+import { Button } from "@/components/ui/button";
 
 export function Newsletter() {
 	const [state, action, isPending] = useActionState(subscribeToNewsletter, null);
@@ -35,14 +36,15 @@ export function Newsletter() {
 									required
 									className="h-12 w-full flex-1 rounded-full border border-background/20 bg-background/10 px-5 text-background outline-none transition-all placeholder:text-background/30 focus:border-background/40 focus:ring-2 focus:ring-background/10"
 								/>
-								<button
+								<Button
 									type="submit"
+									variant="filled-white"
 									disabled={isPending}
-									className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-background px-8 font-medium text-foreground transition-all hover:bg-background/90 disabled:opacity-50"
+									className="h-12 px-8 shrink-0"
 								>
 									{isPending ? "Subscribing\u2026" : "Subscribe"}
 									{!isPending && <ArrowRightIcon className="h-4 w-4" />}
-								</button>
+								</Button>
 							</form>
 							{state?.error && <p className="mt-4 text-sm text-red-300">{state.error}</p>}
 						</>

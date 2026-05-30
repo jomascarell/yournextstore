@@ -9,6 +9,12 @@ export type CartLineItem = {
 		id: string;
 		price: string;
 		images: string[];
+		combinations?: Array<{
+			variantValue: {
+				value: string;
+				variantType: { label: string };
+			};
+		}>;
 		product: {
 			id: string;
 			name: string;
@@ -19,6 +25,9 @@ export type CartLineItem = {
 			bundleProducts?: Array<{
 				quantity: number;
 				variant: { price: string };
+			}>;
+			productCollections?: Array<{
+				collection: { name: string };
 			}>;
 		};
 	};

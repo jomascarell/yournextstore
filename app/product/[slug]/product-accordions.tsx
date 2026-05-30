@@ -16,7 +16,7 @@ const items: AccordionItem[] = [
 		value: "guia-de-tallas",
 		label: "Guía de tallas",
 		icon: Ruler,
-		content: "Consulta nuestra guía de tallas para encontrar el ajuste perfecto.",
+		content: "Proximamente.",
 	},
 	{
 		value: "envios-y-devoluciones",

@@ -1,0 +1,217 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "Products" [ref=e8] [cursor=pointer]:
+            - /url: /products
+          - link "Example" [ref=e9] [cursor=pointer]:
+            - /url: /collection/example
+        - link "Joies Laia" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e11]:
+          - button "Abrir buscador" [ref=e12]:
+            - img [ref=e13]
+            - generic [ref=e16]: Buscar...
+          - link "Information" [ref=e17] [cursor=pointer]:
+            - /url: /faq
+            - img [ref=e18]
+          - button "Shopping cart" [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e24]: "4"
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e31]:
+              - button "Previous image" [ref=e32] [cursor=pointer]:
+                - img
+              - button "Next image" [ref=e33] [cursor=pointer]:
+                - img
+            - generic [ref=e35]:
+              - img [ref=e36]
+              - text: Click to zoom
+            - generic [ref=e39]: 1 / 2
+          - generic [ref=e40]:
+            - button [ref=e41]
+            - button [ref=e43]
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - heading "Zero Gravity Tee" [level=1] [ref=e48]
+              - paragraph [ref=e49]: $79.99
+            - paragraph [ref=e50]: Ultra-soft cotton tee with a bold, abstract neon graphic on the back and a minimalist logo on the chest.
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]: Cantidad
+              - generic [ref=e54]:
+                - button "Decrease quantity" [disabled] [ref=e55]:
+                  - img [ref=e56]
+                - generic [ref=e57]: "1"
+                - button "Increase quantity" [ref=e58]:
+                  - img [ref=e59]
+            - button "Añadir a la cesta - $79.99" [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]:
+                - img [ref=e65]
+                - paragraph [ref=e68]: Pago seguro
+                - paragraph [ref=e69]: Cifrado SSL · Stripe
+              - generic [ref=e70]:
+                - img [ref=e71]
+                - paragraph [ref=e73]: Soporte real
+                - paragraph [ref=e74]: WhatsApp · Email
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - img [ref=e77]
+                - paragraph [ref=e80]: 30d devolución
+                - paragraph [ref=e81]: Devolución en 30 días garantizada
+              - generic [ref=e82]:
+                - img [ref=e83]
+                - paragraph [ref=e86]: Envío gratis
+                - paragraph [ref=e87]: En pedidos desde 50€
+          - generic [ref=e88]:
+            - paragraph [ref=e89]: Te puede interesar
+            - generic [ref=e90]:
+              - button "Guía de tallas" [ref=e92]:
+                - generic [ref=e93]:
+                  - img [ref=e94]
+                  - generic [ref=e100]: Guía de tallas
+                - img [ref=e101]
+              - button "Envíos y Devoluciones" [ref=e104]:
+                - generic [ref=e105]:
+                  - img [ref=e106]
+                  - generic [ref=e109]: Envíos y Devoluciones
+                - img [ref=e110]
+              - button "Cuidado del producto" [ref=e113]:
+                - generic [ref=e114]:
+                  - img [ref=e115]
+                  - generic [ref=e118]: Cuidado del producto
+                - img [ref=e119]
+      - generic [ref=e121]:
+        - generic [ref=e123]:
+          - heading "You might also like" [level=2] [ref=e124]
+          - paragraph [ref=e125]: More products to explore
+        - generic [ref=e126]:
+          - link "Ver Cràter Añadir Cràter a la cesta Cràter Apparel $36.00" [ref=e127] [cursor=pointer]:
+            - /url: /product/crater
+            - generic [ref=e132]:
+              - generic:
+                - button "Ver Cràter": Ver producto
+                - button "Añadir Cràter a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e133]:
+              - paragraph [ref=e134]: Cràter
+              - paragraph [ref=e135]: Apparel
+              - paragraph [ref=e136]: $36.00
+          - link "Ver Vector Tech Pants Añadir Vector Tech Pants a la cesta Vector Tech Pants Apparel $129.99" [ref=e137] [cursor=pointer]:
+            - /url: /product/vector-tech-pants
+            - generic [ref=e141]:
+              - generic:
+                - button "Ver Vector Tech Pants": Ver producto
+                - button "Añadir Vector Tech Pants a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e142]:
+              - paragraph [ref=e143]: Vector Tech Pants
+              - paragraph [ref=e144]: Apparel
+              - paragraph [ref=e145]: $129.99
+          - link "Ver Shadow Serpent Hoodie Añadir Shadow Serpent Hoodie a la cesta Shadow Serpent Hoodie Apparel $149.99" [ref=e146] [cursor=pointer]:
+            - /url: /product/shadow-serpent-hoodie
+            - generic [ref=e150]:
+              - generic:
+                - button "Ver Shadow Serpent Hoodie": Ver producto
+                - button "Añadir Shadow Serpent Hoodie a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e151]:
+              - paragraph [ref=e152]: Shadow Serpent Hoodie
+              - paragraph [ref=e153]: Apparel
+              - paragraph [ref=e154]: $149.99
+    - contentinfo [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - img [ref=e159]
+            - paragraph [ref=e162]: Pago seguro
+            - paragraph [ref=e163]: Cifrado SSl · Stripe
+          - generic [ref=e164]:
+            - img [ref=e165]
+            - paragraph [ref=e167]: Soporte real
+            - paragraph [ref=e168]: WhatsApp Email
+          - generic [ref=e169]:
+            - img [ref=e170]
+            - paragraph [ref=e172]: Envío Gratis
+            - paragraph [ref=e173]: En pedidos desde 50€
+          - generic [ref=e174]:
+            - img [ref=e175]
+            - paragraph [ref=e178]: 30d devolución
+            - paragraph [ref=e179]: Devolución en 30 días garantizada
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - heading "Suscripción al boletín" [level=2] [ref=e182]
+            - paragraph [ref=e183]: Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo, eventos y más.
+            - generic [ref=e184]:
+              - generic [ref=e186]:
+                - textbox "@tucorreo" [ref=e187]
+                - button "Suscribirse" [ref=e188] [cursor=pointer]
+              - paragraph [ref=e189]: Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados, historias originales, eventos y más de acuerdo con la política de privacidad.
+          - generic [ref=e190]:
+            - heading "Ayuda" [level=2] [ref=e191]
+            - generic [ref=e192]:
+              - link "Envío" [ref=e193] [cursor=pointer]:
+                - /url: /faq#envio
+              - link "Devoluciones" [ref=e194] [cursor=pointer]:
+                - /url: /faq#devoluciones
+              - link "Preguntas frecuentes" [ref=e195] [cursor=pointer]:
+                - /url: /faq
+              - link "Guía de tallas" [ref=e196] [cursor=pointer]:
+                - /url: /faq#tallas
+              - link "Cuidado de productos" [ref=e197] [cursor=pointer]:
+                - /url: /faq#cuidado
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - heading "Conecta" [level=2] [ref=e200]
+              - list [ref=e201]:
+                - listitem [ref=e202]:
+                  - link "WhatsApp" [ref=e203] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e204]:
+                  - link "Instagram" [ref=e205] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e206]:
+                  - link "Pinterest" [ref=e207] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e208]:
+                  - link "Email" [ref=e209] [cursor=pointer]:
+                    - /url: mailto:hola@yournextstore.com
+            - generic [ref=e210]:
+              - heading "Información" [level=2] [ref=e211]
+              - paragraph [ref=e212]: Formas de pago aceptadas
+              - generic:
+                - img "Visa"
+                - img "Mastercard"
+                - img "Apple Pay"
+                - img "Google Pay"
+                - img "PayPal"
+        - generic [ref=e213]:
+          - link "Política de privacidad" [ref=e214] [cursor=pointer]:
+            - /url: /legal/privacy-policy
+          - link "Política de cookies" [ref=e215] [cursor=pointer]:
+            - /url: /legal/cookies
+          - link "Términos de uso" [ref=e216] [cursor=pointer]:
+            - /url: /legal/terms
+          - generic [ref=e217]: © 2026 Joies Laia, Inc. Todos los derechos reservados.
+    - link "Made with YNS" [ref=e218] [cursor=pointer]:
+      - /url: https://yournextstore.com/?utm_source=yns-store&utm_medium=referral&utm_campaign=dark-neon-drop-12
+      - img [ref=e219]
+      - generic [ref=e222]: Made with YNS
+  - button "Open Next.js Dev Tools" [ref=e228] [cursor=pointer]:
+    - img [ref=e229]
+  - alert [ref=e232]

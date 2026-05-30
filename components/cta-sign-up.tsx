@@ -25,15 +25,15 @@ export function CtaSignUp({ buttonVariant = "default" }: CtaSignUpProps) {
 						name="email"
 						placeholder="@tucorreo"
 						required
-						className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/50"
+						className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/90"
 					/>
-					<Button type="submit" variant={buttonVariant} size="sm" disabled={isPending}>
+					<Button type="submit" variant={buttonVariant} size="default" disabled={isPending}>
 						{isPending ? "…" : "Suscribirse"}
 					</Button>
 				</div>
 				{state?.error && <p className="mt-2 text-xs text-red-400">{state.error}</p>}
 			</form>
-			<p className="text-xs leading-relaxed text-white/70">
+			<p className="text-xs leading-relaxed text-white/70 pt-4">
 				Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento
 				de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados,
 				historias originales, eventos y más de acuerdo con la política de privacidad.

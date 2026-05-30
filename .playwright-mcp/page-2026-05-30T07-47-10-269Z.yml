@@ -1,0 +1,250 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "Products" [ref=e8] [cursor=pointer]:
+            - /url: /products
+          - link "Example" [ref=e9] [cursor=pointer]:
+            - /url: /collection/example
+        - link "Joies Laia" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e11]:
+          - button "Abrir buscador" [ref=e12]:
+            - img [ref=e13]
+            - generic [ref=e16]: Buscar...
+          - link "Information" [ref=e17] [cursor=pointer]:
+            - /url: /faq
+            - img [ref=e18]
+          - button "Shopping cart" [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e24]: "3"
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e31]:
+              - button "Previous image" [ref=e32] [cursor=pointer]:
+                - img
+              - button "Next image" [ref=e33] [cursor=pointer]:
+                - img
+            - generic [ref=e35]:
+              - img [ref=e36]
+              - text: Click to zoom
+            - generic [ref=e39]: 1 / 2
+          - generic [ref=e40]:
+            - button [ref=e41]
+            - button [ref=e43]
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - heading "Cràter" [level=1] [ref=e48]
+              - paragraph [ref=e49]: $36.00
+            - paragraph [ref=e50]: An elegant necklace crafted to add a touch of sophistication to any look. Designed with a delicate chain and a refined pendant, this piece blends timeless beauty with modern style, making it perfect for everyday wear or special occasions.
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: Graceful, luminous, and effortlessly chic, this necklace is designed to become a signature piece in any jewelry collection. Featuring a finely crafted chain that rests beautifully along the neckline, it showcases a stunning pendant that captures light from every angle for a subtle yet captivating sparkle.
+              - paragraph [ref=e53]: Its versatile design transitions seamlessly from day to evening, complementing both casual outfits and formal attire. Whether worn alone for a minimalist statement or layered with other favorites for a contemporary look, this necklace brings elegance and confidence to every moment.
+              - paragraph [ref=e54]: Carefully made with attention to detail, it offers both comfort and durability, ensuring it remains a treasured accessory for years to come. Perfect as a thoughtful gift or a personal indulgence, this necklace symbolizes beauty, sophistication, and timeless charm.
+          - generic [ref=e55]:
+            - group [ref=e57]:
+              - generic [ref=e59]: Talla
+              - generic [ref=e60]:
+                - button "10" [ref=e61]:
+                  - generic [ref=e62]: "10"
+                - button "11" [ref=e63]:
+                  - generic [ref=e64]: "11"
+                - button "12" [ref=e65]:
+                  - generic [ref=e66]: "12"
+                - button "13" [ref=e67]:
+                  - generic [ref=e68]: "13"
+                - button "14" [ref=e69]:
+                  - generic [ref=e70]: "14"
+                - button "15" [ref=e71]:
+                  - generic [ref=e72]: "15"
+                - button "16" [ref=e73]:
+                  - generic [ref=e74]: "16"
+                - button "17" [ref=e75]:
+                  - generic [ref=e76]: "17"
+                - button "18" [ref=e77]:
+                  - generic [ref=e78]: "18"
+                - button "19" [ref=e79]:
+                  - generic [ref=e80]: "19"
+                - button "20" [ref=e81]:
+                  - generic [ref=e82]: "20"
+                - button "21" [ref=e83]:
+                  - generic [ref=e84]: "21"
+                - button "22" [ref=e85]:
+                  - generic [ref=e86]: "22"
+            - generic [ref=e87]:
+              - generic [ref=e88]: Cantidad
+              - generic [ref=e89]:
+                - button "Decrease quantity" [disabled] [ref=e90]:
+                  - img [ref=e91]
+                - generic [ref=e92]: "1"
+                - button "Increase quantity" [ref=e93]:
+                  - img [ref=e94]
+            - button "Selecciona opciones" [disabled] [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - img [ref=e100]
+                - paragraph [ref=e103]: Pago seguro
+                - paragraph [ref=e104]: Cifrado SSL · Stripe
+              - generic [ref=e105]:
+                - img [ref=e106]
+                - paragraph [ref=e108]: Soporte real
+                - paragraph [ref=e109]: WhatsApp · Email
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - img [ref=e112]
+                - paragraph [ref=e115]: 30d devolución
+                - paragraph [ref=e116]: Devolución en 30 días garantizada
+              - generic [ref=e117]:
+                - img [ref=e118]
+                - paragraph [ref=e121]: Envío gratis
+                - paragraph [ref=e122]: En pedidos desde 50€
+          - generic [ref=e123]:
+            - paragraph [ref=e124]: Te puede interesar
+            - generic [ref=e125]:
+              - button "Guía de tallas" [ref=e127]:
+                - generic [ref=e128]:
+                  - img [ref=e129]
+                  - generic [ref=e135]: Guía de tallas
+                - img [ref=e136]
+              - button "Envíos y Devoluciones" [ref=e139]:
+                - generic [ref=e140]:
+                  - img [ref=e141]
+                  - generic [ref=e144]: Envíos y Devoluciones
+                - img [ref=e145]
+              - button "Cuidado del producto" [ref=e148]:
+                - generic [ref=e149]:
+                  - img [ref=e150]
+                  - generic [ref=e153]: Cuidado del producto
+                - img [ref=e154]
+      - generic [ref=e156]:
+        - generic [ref=e158]:
+          - heading "You might also like" [level=2] [ref=e159]
+          - paragraph [ref=e160]: More products to explore
+        - generic [ref=e161]:
+          - link "Ver Zero Gravity Tee Añadir Zero Gravity Tee a la cesta Zero Gravity Tee Apparel $79.99" [ref=e162] [cursor=pointer]:
+            - /url: /product/zero-gravity-tee
+            - generic [ref=e167]:
+              - generic:
+                - button "Ver Zero Gravity Tee": Ver producto
+                - button "Añadir Zero Gravity Tee a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e168]:
+              - paragraph [ref=e169]: Zero Gravity Tee
+              - paragraph [ref=e170]: Apparel
+              - paragraph [ref=e171]: $79.99
+          - link "Ver Vector Tech Pants Añadir Vector Tech Pants a la cesta Vector Tech Pants Apparel $129.99" [ref=e172] [cursor=pointer]:
+            - /url: /product/vector-tech-pants
+            - generic [ref=e176]:
+              - generic:
+                - button "Ver Vector Tech Pants": Ver producto
+                - button "Añadir Vector Tech Pants a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e177]:
+              - paragraph [ref=e178]: Vector Tech Pants
+              - paragraph [ref=e179]: Apparel
+              - paragraph [ref=e180]: $129.99
+          - link "Ver Shadow Serpent Hoodie Añadir Shadow Serpent Hoodie a la cesta Shadow Serpent Hoodie Apparel $149.99" [ref=e181] [cursor=pointer]:
+            - /url: /product/shadow-serpent-hoodie
+            - generic [ref=e185]:
+              - generic:
+                - button "Ver Shadow Serpent Hoodie": Ver producto
+                - button "Añadir Shadow Serpent Hoodie a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e186]:
+              - paragraph [ref=e187]: Shadow Serpent Hoodie
+              - paragraph [ref=e188]: Apparel
+              - paragraph [ref=e189]: $149.99
+    - contentinfo [ref=e190]:
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - img [ref=e194]
+            - paragraph [ref=e197]: Pago seguro
+            - paragraph [ref=e198]: Cifrado SSl · Stripe
+          - generic [ref=e199]:
+            - img [ref=e200]
+            - paragraph [ref=e202]: Soporte real
+            - paragraph [ref=e203]: WhatsApp Email
+          - generic [ref=e204]:
+            - img [ref=e205]
+            - paragraph [ref=e207]: Envío Gratis
+            - paragraph [ref=e208]: En pedidos desde 50€
+          - generic [ref=e209]:
+            - img [ref=e210]
+            - paragraph [ref=e213]: 30d devolución
+            - paragraph [ref=e214]: Devolución en 30 días garantizada
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - heading "Suscripción al boletín" [level=2] [ref=e217]
+            - paragraph [ref=e218]: Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo, eventos y más.
+            - generic [ref=e219]:
+              - generic [ref=e221]:
+                - textbox "@tucorreo" [ref=e222]
+                - button "Suscribirse" [ref=e223] [cursor=pointer]
+              - paragraph [ref=e224]: Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados, historias originales, eventos y más de acuerdo con la política de privacidad.
+          - generic [ref=e225]:
+            - heading "Ayuda" [level=2] [ref=e226]
+            - generic [ref=e227]:
+              - link "Envío" [ref=e228] [cursor=pointer]:
+                - /url: /faq#envio
+              - link "Devoluciones" [ref=e229] [cursor=pointer]:
+                - /url: /faq#devoluciones
+              - link "Preguntas frecuentes" [ref=e230] [cursor=pointer]:
+                - /url: /faq
+              - link "Guía de tallas" [ref=e231] [cursor=pointer]:
+                - /url: /faq#tallas
+              - link "Cuidado de productos" [ref=e232] [cursor=pointer]:
+                - /url: /faq#cuidado
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - heading "Conecta" [level=2] [ref=e235]
+              - list [ref=e236]:
+                - listitem [ref=e237]:
+                  - link "WhatsApp" [ref=e238] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e239]:
+                  - link "Instagram" [ref=e240] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e241]:
+                  - link "Pinterest" [ref=e242] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e243]:
+                  - link "Email" [ref=e244] [cursor=pointer]:
+                    - /url: mailto:hola@yournextstore.com
+            - generic [ref=e245]:
+              - heading "Información" [level=2] [ref=e246]
+              - paragraph [ref=e247]: Formas de pago aceptadas
+              - generic:
+                - img "Visa"
+                - img "Mastercard"
+                - img "Apple Pay"
+                - img "Google Pay"
+                - img "PayPal"
+        - generic [ref=e248]:
+          - link "Política de privacidad" [ref=e249] [cursor=pointer]:
+            - /url: /legal/privacy-policy
+          - link "Política de cookies" [ref=e250] [cursor=pointer]:
+            - /url: /legal/cookies
+          - link "Términos de uso" [ref=e251] [cursor=pointer]:
+            - /url: /legal/terms
+          - generic [ref=e252]: © 2026 Joies Laia, Inc. Todos los derechos reservados.
+    - link "Made with YNS" [ref=e253] [cursor=pointer]:
+      - /url: https://yournextstore.com/?utm_source=yns-store&utm_medium=referral&utm_campaign=dark-neon-drop-12
+      - img [ref=e254]
+      - generic [ref=e257]: Made with YNS
+  - button "Open Next.js Dev Tools" [ref=e263] [cursor=pointer]:
+    - img [ref=e264]
+  - alert [ref=e267]

@@ -1,33 +1,21 @@
-import { Lock, RefreshCcw, ShieldCheck } from "lucide-react";
+import { RefreshCcw, ShieldCheck, Truck } from "lucide-react";
 
-const SSL_GREEN = "rgb(45,106,79)";
-const SSL_BG = "rgb(216,243,220)";
+const items = [
+	{ Icon: ShieldCheck, title: "Pago seguro", subtitle: "SSL · Stripe" },
+	{ Icon: RefreshCcw, title: "Devolución 30 días", subtitle: "Desde la entrega" },
+	{ Icon: Truck, title: "Envío 24/48 h", subtitle: "Península" },
+];
 
 export function CheckoutTrustLayer() {
 	return (
-		<div className="flex flex-col gap-6">
-			{/* SSL trust badge — green pill */}
-			<div
-				className="flex w-full items-center justify-center gap-2 rounded-full px-3 py-2"
-				style={{ backgroundColor: SSL_BG, border: `0.2px solid ${SSL_GREEN}` }}
-			>
-				<Lock className="h-3.5 w-3.5 shrink-0" style={{ color: SSL_GREEN }} />
-				<span className="font-sans text-xs" style={{ color: SSL_GREEN }}>
-					Conexión segura SSL · Datos cifrados con Stripe
-				</span>
-			</div>
-
-			{/* Micro trust badges */}
-			<div className="flex flex-wrap items-center justify-center gap-3">
-				<div className="flex items-center gap-1.5">
-					<RefreshCcw className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-					<span className="font-sans text-xs text-muted-foreground">Devolución gratuita en 30 días</span>
+		<div className="grid grid-cols-3 gap-2 px-4 py-2">
+			{items.map(({ Icon, title, subtitle }) => (
+				<div key={title} className="flex flex-col items-center gap-1 text-center">
+					<Icon className="h-5 w-5 text-foreground" strokeWidth={1.5} />
+					<span className="font-display text-sm leading-tight text-foreground">{title}</span>
+					<span className="font-sans text-xs leading-tight text-muted-foreground">{subtitle}</span>
 				</div>
-				<div className="flex items-center gap-1.5">
-					<ShieldCheck className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-					<span className="font-sans text-xs text-muted-foreground">Garantía de compra segura</span>
-				</div>
-			</div>
+			))}
 		</div>
 	);
 }
