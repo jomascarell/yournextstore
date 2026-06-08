@@ -45,21 +45,20 @@ export function CartSidebar() {
 								<br />
 								¿No sabes por dónde empezar?
 							</h2>
-							<div className="flex flex-col gap-3 w-full">
+							<div className="flex flex-col gap-3 w-full items-center">
 								<Button
 									onClick={closeCart}
 									asChild
-									className="w-full h-7.5 rounded-full font-display text-base font-normal"
+									className="w-sm rounded-full font-display text-base font-normal"
 								>
 									<a href="/products">Ver novedades</a>
 								</Button>
 								<Button
 									variant="link"
 									onClick={closeCart}
-									asChild
 									className="w-full font-display text-base font-normal"
 								>
-									<a href="/collection">Ver todas las colecciones</a>
+									Seguir comprando
 								</Button>
 							</div>
 						</div>
@@ -85,12 +84,9 @@ export function CartSidebar() {
 								/>
 							</div>
 							{hasFreeShipping ? (
-								<div
-									className="mt-3 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2"
-									style={{ backgroundColor: SHIPPING_BG, border: `0.2px solid ${SHIPPING_GREEN}` }}
-								>
+								<div className="mt-3 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2">
 									<Truck className="h-4 w-4 shrink-0" style={{ color: SHIPPING_GREEN }} />
-									<span className="font-sans text-sm" style={{ color: SHIPPING_GREEN }}>
+									<span className="font-sans text-sm font-bold" style={{ color: SHIPPING_GREEN }}>
 										¡Enhorabuena! Tienes envío gratuito.
 									</span>
 								</div>

@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { Info } from "lucide-react";
 import type { Metadata } from "next";
 import { Josefin_Sans, Lato } from "next/font/google";
+import Image from "next/image";
 import { Suspense } from "react";
 import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
@@ -34,7 +35,8 @@ const lato = Lato({
 export async function generateMetadata(): Promise<Metadata> {
 	const me = await meGetCached();
 	const storeName = me.store.settings?.storeName || "Your Next Store";
-	const faviconUrl = getStoreFaviconUrl(me.store.settings) ?? "/logo.svg";
+	const faviconUrl = getStoreFaviconUrl(me.store.settings) ?? "/favicon_32.svg";
+	const appleIconUrl = getStoreFaviconUrl(me.store.settings) ?? "/apple-icon.png";
 
 	return {
 		title: storeName,
@@ -42,12 +44,18 @@ export async function generateMetadata(): Promise<Metadata> {
 		icons: {
 			icon: [
 				{ url: faviconUrl, sizes: "any", type: "image/svg+xml" },
-				{ url: faviconUrl, sizes: "192x192", type: "image/png" },
+				{ url: "/favicon_48.svg", sizes: "48x48", type: "image/svg+xml" },
+				{ url: "/PWA_PWA-192.png", sizes: "192x192", type: "image/png" },
 			],
-			apple: [{ url: faviconUrl, sizes: "180x180" }],
+			apple: [{ url: appleIconUrl, sizes: "180x180" }],
 			shortcut: faviconUrl,
 		},
 		manifest: "/manifest.webmanifest",
+		openGraph: {
+			title: storeName,
+			description: me.store.settings?.storeDescription || "Your next e-commerce store",
+			images: ["/opengraph-image.png"],
+		},
 	};
 }
 
@@ -82,8 +90,15 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 						</div>
 
 						{/* Center: logo / store name */}
-						<YnsLink prefetch={"eager"} href="/" className="font-display text-xl font-bold text-[#0E100E]">
-							{storeName}
+						<YnsLink prefetch={"eager"} href="/" aria-label={storeName} className="flex items-center px-12">
+							<Image
+								src="/master-logo.svg"
+								alt={storeName}
+								width={180}
+								height={62}
+								priority
+								className="h-8 w-auto sm:h-10"
+							/>
 						</YnsLink>
 
 						{/* Right: icons */}

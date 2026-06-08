@@ -1,0 +1,242 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "Products" [ref=e8] [cursor=pointer]:
+            - /url: /products
+          - link "Example" [ref=e9] [cursor=pointer]:
+            - /url: /collection/example
+        - link "Joies Laia" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e11]:
+          - button "Abrir buscador" [ref=e12]:
+            - img [ref=e13]
+            - generic [ref=e16]: Buscar...
+          - link "Information" [ref=e17] [cursor=pointer]:
+            - /url: /faq
+            - img [ref=e18]
+          - button "Shopping cart" [ref=e20]:
+            - img [ref=e21]
+    - main [ref=e25]:
+      - heading "Sé el primero en enterarte de las nuevas colecciones, los eventos especiales y las novedades de bella" [level=1] [ref=e29]
+      - generic [ref=e30]:
+        - generic [ref=e32]:
+          - heading "Una pequeña muestra de mi trabajo" [level=2] [ref=e33]
+          - paragraph [ref=e34]: Piezas únicas, elaboradas con cuidado y atención al detalle.
+        - generic [ref=e36]:
+          - link "Ver Pendientes" [ref=e37] [cursor=pointer]:
+            - /url: /#
+            - img "Pendientes artesanales de plata" [ref=e38]
+            - heading "Pendientes" [level=3] [ref=e40]
+            - generic [ref=e41]:
+              - button: Ver productos
+          - link "Ver productos" [ref=e42] [cursor=pointer]:
+            - /url: /#
+            - img "Pulseras hechas a mano" [ref=e43]
+            - heading [level=3] [ref=e45]
+            - generic [ref=e46]:
+              - button: Ver productos
+          - link "Ver Colgantes" [ref=e47] [cursor=pointer]:
+            - /url: /#
+            - img "Colgantes únicos" [ref=e48]
+            - heading "Colgantes" [level=3] [ref=e50]
+            - generic [ref=e51]:
+              - button: Ver productos
+          - link "Ver productos" [ref=e52] [cursor=pointer]:
+            - /url: "#"
+            - img "Collares artesanales" [ref=e53]
+            - heading [level=3] [ref=e55]
+            - generic [ref=e56]:
+              - button: Ver productos
+          - link "Ver Pins" [ref=e57] [cursor=pointer]:
+            - /url: /#
+            - img "Pins de diseño" [ref=e58]
+            - heading "Pins" [level=3] [ref=e60]
+            - generic [ref=e61]:
+              - button: Ver productos
+          - link "Ver Anillo" [ref=e62] [cursor=pointer]:
+            - /url: /#
+            - img "Anillos artesanales" [ref=e63]
+            - heading "Anillo" [level=3] [ref=e65]
+            - generic [ref=e66]:
+              - button: Ver productos
+      - generic [ref=e71]:
+        - heading "Natural Isn't Our New Direction. It's Our Origin." [level=2] [ref=e72]
+        - paragraph [ref=e73]: But that's not the whole story. We go further. Organic and regenerative over conventional. Traceable over vague. Designed to last.
+        - paragraph [ref=e74]: Responsible style has never looked better.
+        - link "Comprar ahora" [ref=e76] [cursor=pointer]:
+          - /url: /products
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: IMPACT REPORT
+        - heading "Natural Isn't Our New Direction. It's Our Origin." [level=2] [ref=e82]:
+          - text: Natural Isn't Our New Direction.
+          - text: It's Our Origin.
+        - paragraph [ref=e83]: Responsible style has never looked better.
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - heading "Añadidos recientemente" [level=2] [ref=e88]
+            - paragraph [ref=e89]: Better-for-your styles you'll love, too.
+          - link "Ver más" [ref=e90] [cursor=pointer]:
+            - /url: /products
+            - text: Ver más
+            - img
+        - generic [ref=e91]:
+          - link "Ver Cràter Añadir Cràter a la cesta Cràter Apparel $36.00" [ref=e92] [cursor=pointer]:
+            - /url: /product/crater
+            - generic [ref=e97]:
+              - generic:
+                - button "Ver Cràter": Ver producto
+                - button "Añadir Cràter a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: Cràter
+              - paragraph [ref=e100]: Apparel
+              - paragraph [ref=e101]: $36.00
+          - link "Ver Zero Gravity Tee Añadir Zero Gravity Tee a la cesta Zero Gravity Tee Apparel $79.99" [ref=e102] [cursor=pointer]:
+            - /url: /product/zero-gravity-tee
+            - generic [ref=e107]:
+              - generic:
+                - button "Ver Zero Gravity Tee": Ver producto
+                - button "Añadir Zero Gravity Tee a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e108]:
+              - paragraph [ref=e109]: Zero Gravity Tee
+              - paragraph [ref=e110]: Apparel
+              - paragraph [ref=e111]: $79.99
+          - link "Ver Phantom Duffle Bag Añadir Phantom Duffle Bag a la cesta Phantom Duffle Bag Accessories $119.99" [ref=e112] [cursor=pointer]:
+            - /url: /product/phantom-duffle-bag
+            - generic [ref=e116]:
+              - generic:
+                - button "Ver Phantom Duffle Bag": Ver producto
+                - button "Añadir Phantom Duffle Bag a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e117]:
+              - paragraph [ref=e118]: Phantom Duffle Bag
+              - paragraph [ref=e119]: Accessories
+              - paragraph [ref=e120]: $119.99
+          - link "Ver Vector Tech Pants Añadir Vector Tech Pants a la cesta Vector Tech Pants Apparel $129.99" [ref=e121] [cursor=pointer]:
+            - /url: /product/vector-tech-pants
+            - generic [ref=e125]:
+              - generic:
+                - button "Ver Vector Tech Pants": Ver producto
+                - button "Añadir Vector Tech Pants a la cesta":
+                  - text: Añadir a la cesta
+                  - generic:
+                    - img
+            - generic [ref=e126]:
+              - paragraph [ref=e127]: Vector Tech Pants
+              - paragraph [ref=e128]: Apparel
+              - paragraph [ref=e129]: $129.99
+      - generic [ref=e134]:
+        - heading "FEEL IT in PERSON" [level=2] [ref=e135]
+        - paragraph [ref=e136]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet dignissim turpis. Nullam ac suscipit lectus, at maximus dui. Sed efficitur vitae risus vitae tempor. Aenean rutrum consectetur nisi tempor dictum. Donec mollis finibus mollis. Suspendisse ut mi nisl. Integer fermentum quam ut mauris auctor consequat. Etiam quis quam tortor. Phasellus eu justo eu ipsum aliquet consectetur vitae id quam. Curabitur sed orci ut ipsum tincidunt faucibus.
+        - link "Ponte en contacto" [ref=e138] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e139]:
+        - generic [ref=e141]:
+          - heading "@joies.laia" [level=2] [ref=e142]
+          - paragraph [ref=e143]: Follow us on social and stay connected.
+        - generic [ref=e144]:
+          - link "Ver publicación en Instagram" [ref=e145] [cursor=pointer]:
+            - /url: https://www.instagram.com/p/DXq8CBzjFts/?img_index=2
+            - img "Pendientes artesanales sobre fondo neutro" [ref=e146]
+          - link "Ver publicación en Instagram" [ref=e147] [cursor=pointer]:
+            - /url: https://instagram.com/p/XXXXXXXXXXX
+            - img "Colgante de plata hecho a mano" [ref=e148]
+          - link "Ver publicación en Instagram" [ref=e149] [cursor=pointer]:
+            - /url: https://instagram.com/p/XXXXXXXXXXX
+            - img "Detalle de un anillo artesanal" [ref=e150]
+          - link "Ver publicación en Instagram" [ref=e151] [cursor=pointer]:
+            - /url: https://instagram.com/p/XXXXXXXXXXX
+            - img "Conjunto de pins de diseño" [ref=e152]
+    - contentinfo [ref=e153]:
+      - generic [ref=e154]:
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - img [ref=e157]
+            - paragraph [ref=e160]: Pago seguro
+            - paragraph [ref=e161]: Cifrado SSl · Stripe
+          - generic [ref=e162]:
+            - img [ref=e163]
+            - paragraph [ref=e165]: Soporte real
+            - paragraph [ref=e166]: WhatsApp Email
+          - generic [ref=e167]:
+            - img [ref=e168]
+            - paragraph [ref=e170]: Envío Gratis
+            - paragraph [ref=e171]: En pedidos desde 50€
+          - generic [ref=e172]:
+            - img [ref=e173]
+            - paragraph [ref=e176]: 30d devolución
+            - paragraph [ref=e177]: Devolución en 30 días garantizada
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - heading "Suscripción al boletín" [level=2] [ref=e180]
+            - paragraph [ref=e181]: Suscríbete para recibir ofertas exclusivas, historias originales, información sobre activismo, eventos y más.
+            - generic [ref=e182]:
+              - generic [ref=e184]:
+                - textbox "@tucorreo" [ref=e185]
+                - button "Suscribirse" [ref=e186] [cursor=pointer]
+              - paragraph [ref=e187]: Al hacer clic en el botón «Suscribirme», doy mi consentimiento a Your Next Store para el tratamiento de mi dirección de correo electrónico y para que me envíe mensajes acerca de productos destacados, historias originales, eventos y más de acuerdo con la política de privacidad.
+          - generic [ref=e188]:
+            - heading "Ayuda" [level=2] [ref=e189]
+            - generic [ref=e190]:
+              - link "Envío" [ref=e191] [cursor=pointer]:
+                - /url: /faq#envio
+              - link "Devoluciones" [ref=e192] [cursor=pointer]:
+                - /url: /faq#devoluciones
+              - link "Preguntas frecuentes" [ref=e193] [cursor=pointer]:
+                - /url: /faq
+              - link "Guía de tallas" [ref=e194] [cursor=pointer]:
+                - /url: /faq#tallas
+              - link "Cuidado de productos" [ref=e195] [cursor=pointer]:
+                - /url: /faq#cuidado
+          - generic [ref=e196]:
+            - generic [ref=e197]:
+              - heading "Conecta" [level=2] [ref=e198]
+              - list [ref=e199]:
+                - listitem [ref=e200]:
+                  - link "WhatsApp" [ref=e201] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e202]:
+                  - link "Instagram" [ref=e203] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e204]:
+                  - link "Pinterest" [ref=e205] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e206]:
+                  - link "Email" [ref=e207] [cursor=pointer]:
+                    - /url: mailto:hola@yournextstore.com
+            - generic [ref=e208]:
+              - heading "Información" [level=2] [ref=e209]
+              - paragraph [ref=e210]: Formas de pago aceptadas
+              - generic:
+                - img "Visa"
+                - img "Mastercard"
+                - img "Apple Pay"
+                - img "Google Pay"
+                - img "PayPal"
+        - generic [ref=e211]:
+          - link "Política de privacidad" [ref=e212] [cursor=pointer]:
+            - /url: /legal/privacy-policy
+          - link "Política de cookies" [ref=e213] [cursor=pointer]:
+            - /url: /legal/cookies
+          - link "Términos de uso" [ref=e214] [cursor=pointer]:
+            - /url: /legal/terms
+          - generic [ref=e215]: © 2026 Joies Laia, Inc. Todos los derechos reservados.
+    - link "Made with YNS" [ref=e216] [cursor=pointer]:
+      - /url: https://yournextstore.com/?utm_source=yns-store&utm_medium=referral&utm_campaign=dark-neon-drop-12
+      - img [ref=e217]
+      - generic [ref=e220]: Made with YNS
+  - button "Open Next.js Dev Tools" [ref=e226] [cursor=pointer]:
+    - img [ref=e227]
+  - alert [ref=e230]

@@ -19,7 +19,7 @@ export function CtaSignUp({ buttonVariant = "default" }: CtaSignUpProps) {
 	return (
 		<>
 			<form action={action}>
-				<div className="flex items-center border border-white/80 bg-white/20 pl-6 pr-1 py-1">
+				<div className="flex items-center border-b border-white/80 pb-2 py-1">
 					<input
 						type="email"
 						name="email"

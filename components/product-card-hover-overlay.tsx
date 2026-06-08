@@ -1,12 +1,14 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { ShoppingBag, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { addToCart } from "@/app/cart/actions";
 import { useCart } from "@/app/cart/cart-context";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { YNSMedia } from "@/lib/yns-media";
 
 type VariantCombination = {
 	variantValue: {
@@ -75,15 +77,14 @@ export function ProductCardHoverOverlay({ variants, product }: Props) {
 	const { openCart, dispatch } = useCart();
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
-	const [isSelecting, setIsSelecting] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const [selected, setSelected] = useState<Record<string, string>>({});
 
 	const groups = useMemo(() => buildGroups(variants), [variants]);
 	const hasChoices = variants.length > 1 && groups.length > 0;
-	const showSizeGuide = groups.some((g) => /talla|size/i.test(g.label));
 
-	const resetSelector = () => {
-		setIsSelecting(false);
+	const closeModal = () => {
+		setIsOpen(false);
 		setSelected({});
 	};
 
@@ -108,7 +109,7 @@ export function ProductCardHoverOverlay({ variants, product }: Props) {
 				},
 			});
 			await addToCart(variant.id, 1);
-			resetSelector();
+			closeModal();
 		});
 	};
 
@@ -120,7 +121,7 @@ export function ProductCardHoverOverlay({ variants, product }: Props) {
 			if (first) addVariant(first);
 			return;
 		}
-		setIsSelecting(true);
+		setIsOpen(true);
 	};
 
 	const handleSelectOption = (e: React.MouseEvent, label: string, value: string) => {
@@ -142,119 +143,97 @@ export function ProductCardHoverOverlay({ variants, product }: Props) {
 
 	if (variants.length === 0) return null;
 
-	const selectorTitle =
-		groups.length === 1 ? `Seleccionar ${groups[0].label.toLowerCase()}` : "Seleccionar opciones";
+	const modalImage = variants[0]?.images[0] ?? product.images[0];
 
 	return (
-		<div onMouseLeave={resetSelector} className="contents">
-			{/* Step 1 — quick-buy buttons (revealed on hover, centered vertically) */}
-			{!isSelecting && (
-				<div className="absolute inset-x-0 bottom-0 p-3 flex translate-y-2 flex-col items-stretch gap-2 opacity-0 pointer-events-none transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto motion-reduce:transition-none motion-reduce:translate-y-0">
-					<Button
-						type="button"
-						variant="secondary"
-						onClick={(e) => {
-							e.preventDefault();
-							e.stopPropagation();
-							router.push(`/product/${product.slug}`);
-						}}
-						disabled={isPending}
-						className="active:scale-95"
-						aria-label={`Ver ${product.name}`}
-					>
-						Ver producto
-					</Button>
-					<Button
-						type="button"
-						variant="filled-transparent"
-						onClick={handleAddClick}
-						disabled={isPending}
-						className="hover:bg-white/10 active:scale-95 disabled:opacity-60 disabled:bg-transparent disabled:border-white disabled:text-white"
-						aria-label={`Añadir ${product.name} a la cesta`}
-					>
-						{isPending ? "Añadiendo…" : "Añadir a la cesta"}
-						<span className="flex h-5 w-5 items-center justify-center rounded-full border border-white/50">
-							<Plus className="h-3 w-3" />
-						</span>
-					</Button>
-				</div>
-			)}
+		<>
+			<div className="absolute inset-x-0 bottom-0 pt-3 pb-3 flex translate-y-2 flex-row items-center justify-end gap-2 opacity-0 pointer-events-none transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto motion-reduce:transition-none motion-reduce:translate-y-0">
+				<Button
+					type="button"
+					onClick={handleAddClick}
+					disabled={isPending}
+					className="rounded-none h-auto w-auto p-5"
+					aria-label={`Añadir ${product.name} a la cesta`}
+				>
+					<ShoppingBag className="size-5" />
+				</Button>
+			</div>
 
-			{/* Step 2 — inline variant selector (auto-adds once a full combination is chosen) */}
-			{isSelecting && (
-				<div className="absolute inset-x-0 bottom-0 p-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
-					<div className="pointer-events-none bg-background p-3 text-foreground shadow-md group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-						<div className="mb-2.5 flex items-center justify-between">
-							<span className="text-[11px] font-bold tracking-widest">{selectorTitle}</span>
-							{showSizeGuide && (
-								<button
-									type="button"
-									onClick={(e) => {
-										e.preventDefault();
-										e.stopPropagation();
-										router.push(`/product/${product.slug}`);
-									}}
-									className="text-[11px] underline opacity-60 transition-opacity hover:opacity-100"
-								>
-									Guía de tallas
-								</button>
-							)}
-						</div>
+			<div onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
+				<Dialog open={isOpen} onOpenChange={(open) => !open && closeModal()}>
+					<DialogContent
+						showCloseButton={false}
+						className="sm:max-w-3xl gap-0 p-0 border-0 rounded-none overflow-hidden"
+					>
+						<DialogTitle className="sr-only">{`Seleccionar opciones para ${product.name}`}</DialogTitle>
 
-						<div className="flex flex-col gap-2.5">
-							{groups.map((group) => (
-								<div key={group.label}>
-									{groups.length > 1 && (
-										<span className="mb-1.5 block text-[10px] font-bold tracking-wide opacity-60">
-											{group.label}
-										</span>
-									)}
-									<div className="flex flex-wrap gap-1.5">
-										{group.options.map((option) => {
+						<button
+							type="button"
+							onClick={closeModal}
+							className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center text-foreground transition-opacity hover:opacity-70"
+							aria-label="Cerrar"
+						>
+							<X className="size-6" />
+						</button>
+
+						<div className="grid grid-cols-2">
+							<div className="relative aspect-square bg-secondary">
+								{modalImage && (
+									<YNSMedia
+										src={modalImage}
+										alt={product.name}
+										fill
+										sizes="(max-width: 768px) 50vw, 384px"
+										className="object-cover"
+									/>
+								)}
+							</div>
+
+							<div className="flex flex-col p-8 pt-12">
+								<div className="mb-6 flex items-start justify-between gap-4">
+									<h4 className="font-display text-2xl font-normal leading-none text-foreground">
+										{product.name}
+									</h4>
+									<button
+										type="button"
+										onClick={(e) => {
+											e.preventDefault();
+											e.stopPropagation();
+											closeModal();
+											router.push(`/product/${product.slug}`);
+										}}
+										className="whitespace-nowrap font-sans text-sm text-foreground underline transition-opacity hover:opacity-70"
+									>
+										Consultar producto
+									</button>
+								</div>
+
+								<div className="flex flex-col">
+									{groups.map((group) =>
+										group.options.map((option) => {
 											const isActive = selected[group.label] === option.value;
-											if (group.type === "color") {
-												return (
-													<button
-														key={option.value}
-														type="button"
-														onClick={(e) => handleSelectOption(e, group.label, option.value)}
-														disabled={isPending}
-														className={cn(
-															"h-7 w-7 rounded-full border transition-all active:scale-90",
-															isActive
-																? "ring-2 ring-foreground ring-offset-1 ring-offset-background"
-																: "border-foreground/20 hover:border-foreground",
-														)}
-														style={{ backgroundColor: option.colorValue ?? "#fff" }}
-														aria-label={option.value}
-														title={option.value}
-													/>
-												);
-											}
 											return (
 												<button
-													key={option.value}
+													key={`${group.label}-${option.value}`}
 													type="button"
 													onClick={(e) => handleSelectOption(e, group.label, option.value)}
 													disabled={isPending}
 													className={cn(
-														"flex min-w-[28px] items-center justify-center rounded border px-2 py-1 text-[11px] transition-all active:scale-90",
-														isActive
-															? "border-foreground bg-foreground text-background"
-															: "border-foreground/20 bg-background text-foreground hover:border-foreground",
+														"flex items-center justify-start border-t border-border py-4 text-left font-sans text-base text-foreground transition-colors hover:bg-secondary/60 disabled:opacity-60",
+														isActive && "bg-secondary",
 													)}
 												>
 													{option.value}
 												</button>
 											);
-										})}
-									</div>
+										}),
+									)}
 								</div>
-							))}
+							</div>
 						</div>
-					</div>
-				</div>
-			)}
-		</div>
+					</DialogContent>
+				</Dialog>
+			</div>
+		</>
 	);
 }

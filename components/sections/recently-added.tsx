@@ -12,7 +12,7 @@ export async function RecentlyAdded() {
 	const { data: products } = await commerce.productBrowse({ active: true, limit: 4 });
 
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
+		<section style={{ backgroundColor: "#fff" }} className="py-24">
 			<div className="mx-auto max-w-7xl px-7.5 sm:px-4 lg:px-20">
 				<div className="mb-14.5 flex items-end justify-between">
 					<div className="flex flex-col gap-1">

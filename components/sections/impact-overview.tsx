@@ -3,7 +3,7 @@ import { YnsLink } from "@/components/yns-link";
 
 export function ImpactOverview() {
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }}>
+		<section style={{ backgroundColor: "#fff" }}>
 			<div className="grid grid-cols-1 lg:grid-cols-2">
 				{/* Left: image — flexible, expands with the viewport */}
 				<div className="relative aspect-640/864 w-full">

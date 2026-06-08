@@ -9,7 +9,7 @@ import { WorkGallery } from "@/components/sections/work-gallery";
 
 function RecentlyAddedSkeleton() {
 	return (
-		<section style={{ backgroundColor: "rgb(246,245,255)" }} className="py-24">
+		<section style={{ backgroundColor: "#fff" }} className="py-24">
 			<div className="mx-auto max-w-7xl px-8 sm:px-4 lg:px-20">
 				<div className="mb-10 h-8 w-48 animate-pulse rounded bg-black/10" />
 				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
