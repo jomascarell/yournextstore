@@ -14,42 +14,29 @@ const galleryItems: GalleryItem[] = [
 		id: 1,
 		label: "Pendientes",
 		href: "/#",
-		image: "/images/images-home-page/IMG_2440.JPG",
+		image: "/images/images-work-gallery/Firefly_vista con modelo en estudio fondo blanco lateral 657563.png",
 		alt: "Pendientes artesanales de plata",
-	},
-	{
-		id: 2,
-		label: "", // TODO: confirmar categoría (antes estaba vacío)
-		href: "/#",
-		image: "/gallery/pulseras.jpg",
-		alt: "Pulseras hechas a mano",
 	},
 	{
 		id: 3,
 		label: "Colgantes",
 		href: "/#",
-		image: "/gallery/colgantes.jpg",
+		image: "/images/images-work-gallery/IMG_2383.JPG",
 		alt: "Colgantes únicos",
-	},
-	{
-		id: 4,
-		label: "", // TODO: confirmar categoría (antes estaba vacío)
-		href: "#",
-		image: "/gallery/collares.jpg",
-		alt: "Collares artesanales",
 	},
 	{
 		id: 5,
 		label: "Pins",
 		href: "/#",
-		image: "/gallery/pins.jpg",
+		image:
+			"/images/images-work-gallery/Firefly_muestra sobre camiseta de modelo, plano del busto, estudio blanco 838377.png",
 		alt: "Pins de diseño",
 	},
 	{
 		id: 6,
 		label: "Anillo",
 		href: "/#",
-		image: "/gallery/anillos.jpg",
+		image: "/images/images-work-gallery/IMG_2749.JPG",
 		alt: "Anillos artesanales",
 	},
 ];
@@ -70,8 +57,8 @@ export function WorkGallery() {
 			</div>
 
 			{/* Cards grid */}
-			<div className="mx-auto max-w-244.5 px-7.5 sm:px-4 lg:px-20">
-				<div className="grid grid-cols-2 gap-x-8.25 gap-y-12.5 sm:grid-cols-3">
+			<div className="mx-auto max-w-7xl px-7.5 sm:px-4 lg:px-20">
+				<div className="grid grid-cols-2 gap-x-8.25 gap-y-12.5 sm:grid-cols-4">
 					{galleryItems.map((item) => (
 						<a
 							key={item.id}
@@ -92,7 +79,7 @@ export function WorkGallery() {
 								src={item.image}
 								alt={item.alt}
 								fill
-								sizes="(max-width: 640px) 50vw, 33vw"
+								sizes="(max-width: 640px) 50vw, 25vw"
 								className="object-cover"
 							/>
 

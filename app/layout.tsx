@@ -39,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	const appleIconUrl = getStoreFaviconUrl(me.store.settings) ?? "/apple-icon.png";
 
 	return {
+		metadataBase: new URL(process.env.NEXT_PUBLIC_URL || "http://localhost:3000"),
 		title: storeName,
 		description: me.store.settings?.storeDescription || "Your next e-commerce store",
 		icons: {

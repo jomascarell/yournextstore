@@ -22,10 +22,10 @@ export async function Navbar() {
 				activeClassName={activeLinkClass}
 				className={linkClass}
 			>
-				Home
+				Inicio
 			</YnsLink>
 			<YnsLink prefetch={"eager"} href="/products" activeClassName={activeLinkClass} className={linkClass}>
-				Products
+				Catálogo
 			</YnsLink>
 			{collections.map((collection) => (
 				<YnsLink

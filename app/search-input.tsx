@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { YNSMedia } from "@/lib/yns-media";
 
 const POPULAR_SEARCHES = ["Anillos", "Pendientes", "Anillo Bombé", "Collar Soul", "Anillo Bicho Raro"];
 
@@ -193,9 +194,20 @@ export function SearchInput() {
 												key={item.id}
 												type="button"
 												onClick={() => navigate(`/product/${item.slug}`)}
-												className="text-left font-sans text-base text-[#0E100E] hover:underline"
+												className="flex items-center gap-3 text-left hover:opacity-70 transition-opacity"
 											>
-												{item.name}
+												<div className="relative shrink-0 w-12 h-16 bg-[#616161]/20 overflow-hidden">
+													{item.image && (
+														<YNSMedia
+															src={item.image}
+															alt={item.name}
+															fill
+															sizes="48px"
+															className="object-cover"
+														/>
+													)}
+												</div>
+												<span className="font-sans text-base text-[#0E100E]">{item.name}</span>
 											</button>
 										))}
 										<button

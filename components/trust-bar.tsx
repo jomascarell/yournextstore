@@ -1,4 +1,4 @@
-import { Home, Lock, MessageCircle, Truck } from "lucide-react";
+import { Home, Lock, MessageCircle, TruckIcon } from "lucide-react";
 
 const trustItems = [
 	{
@@ -12,9 +12,9 @@ const trustItems = [
 		description: "WhatsApp · Email",
 	},
 	{
-		icon: Truck,
+		icon: TruckIcon,
 		title: "Envío Gratis",
-		description: "En pedidos desde 50€",
+		description: "En pedidos desde 40€",
 	},
 	{
 		icon: Home,

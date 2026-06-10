@@ -16,13 +16,13 @@ export function ImpactReport() {
 
 			{/* Text — centered */}
 			<div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center text-white">
-				<p className="text-2xl font-normal uppercase">IMPACT REPORT</p>
+				<p className="text-2xl font-normal uppercase">Plata 925</p>
 				<h2 className="text-4xl font-medium leading-11 tracking-[0.03em]">
-					Natural Isn't Our New Direction.
+					La major part de les joies estan fetes en plata de llei 925,
 					<br />
-					It's Our Origin.
+					un material durador i atemporal.
 				</h2>
-				<p className="text-base">Responsible style has never looked better.</p>
+				<p className="text-base">El estilo responsable nunca ha tenido mejor aspecto.</p>
 			</div>
 		</section>
 	);

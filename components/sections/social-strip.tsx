@@ -10,27 +10,27 @@ type InstagramPost = {
 const instagramPosts: InstagramPost[] = [
 	{
 		id: 1,
-		image: "/images/images-home-page/IMG_2440.JPG",
+		image: "/images/images-social-strip/Rocher_Laia_13.jpg",
 		alt: "Pendientes artesanales sobre fondo neutro",
-		href: "https://www.instagram.com/p/DXq8CBzjFts/?img_index=2",
+		href: "https://www.instagram.com/joies.laia/",
 	},
 	{
 		id: 2,
-		image: "/social/post-2.jpg",
+		image: "/images/images-social-strip/IMG_2514.JPG",
 		alt: "Colgante de plata hecho a mano",
-		href: "https://instagram.com/p/XXXXXXXXXXX",
+		href: "https://www.instagram.com/joies.laia/",
 	},
 	{
 		id: 3,
-		image: "/social/post-3.jpg",
+		image: "/images/images-social-strip/Rocher_Laia_22.jpg",
 		alt: "Detalle de un anillo artesanal",
-		href: "https://instagram.com/p/XXXXXXXXXXX",
+		href: "https://www.instagram.com/joies.laia/",
 	},
 	{
 		id: 4,
-		image: "/social/post-4.jpg",
+		image: "/images/images-social-strip/SNY05658.jpg",
 		alt: "Conjunto de pins de diseño",
-		href: "https://instagram.com/p/XXXXXXXXXXX",
+		href: "https://www.instagram.com/joies.laia/",
 	},
 ];
 

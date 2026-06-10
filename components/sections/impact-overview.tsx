@@ -29,17 +29,22 @@ export function ImpactOverview() {
 				 */}
 				<div className="flex flex-col justify-center gap-6 px-7.5 py-24 sm:px-4 md:px-8 lg:pl-16 lg:pr-[max(4rem,calc((100vw-80rem)/2))]">
 					<h2 className="text-4xl font-medium leading-11 tracking-[0.03em] text-foreground">
-						Natural Isn't Our New Direction. It's Our Origin.
+						Detras de la plata.
 					</h2>
 					<p className="text-muted-foreground">
-						But that's not the whole story. We go further. Organic and regenerative over conventional.
-						Traceable over vague. Designed to last.
+						Joies Laia es una marca de joyería artesanal creada desde la curiosidad, el juego y las ganas de
+						expresarme a través de las formas. Cada pieza está hecha a mano en plata 925, desde el primer
+						esbozo hasta el acabado final.
 					</p>
-					<p className="text-muted-foreground">Responsible style has never looked better.</p>
+					<p className="text-muted-foreground">
+						No trabajo desde la producción masiva ni desde la prisa; me interesa crear joyas con personalidad,
+						pensadas para durar y acompañar. Para mí, la joyería es una manera de contar quién eras sin
+						hablar.
+					</p>
 					<div className="mt-2">
 						<Button variant="outline" asChild>
 							<YnsLink prefetch="eager" href="/products">
-								Comprar ahora
+								Consultar catálogo
 							</YnsLink>
 						</Button>
 					</div>

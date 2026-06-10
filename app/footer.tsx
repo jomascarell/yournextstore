@@ -1,16 +1,16 @@
 "use client";
 
-import { Check, Home, Lock, MessageCircle } from "lucide-react";
+import { MessageCircle, RefreshCcw, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import { CtaSignUp } from "@/components/cta-sign-up";
 import { Button } from "@/components/ui/button";
 import { YnsLink } from "@/components/yns-link";
 
 const trustItems = [
-	{ icon: Lock, title: "Pago seguro", description: "Cifrado SSl · Stripe" },
-	{ icon: MessageCircle, title: "Soporte real", description: "WhatsApp Email" },
-	{ icon: Check, title: "Envío Gratis", description: "En pedidos desde 50€" },
-	{ icon: Home, title: "30d devolución", description: "Devolución en 30 días garantizada" },
+	{ icon: ShieldCheck, title: "Pago seguro", description: "Cifrado SSl · Stripe" },
+	{ icon: MessageCircle, title: "Soporte real", description: "WhatsApp · Email" },
+	{ icon: Truck, title: "Envío Gratis", description: "En pedidos desde 50€" },
+	{ icon: RefreshCcw, title: "30d devolución", description: "Devolución en 30 días garantizada" },
 ];
 
 const helpLinks = [

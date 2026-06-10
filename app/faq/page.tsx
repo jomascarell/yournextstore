@@ -2,11 +2,12 @@ import { Mail } from "lucide-react";
 import type { Metadata } from "next";
 import { type FAQCategory, faqCategories } from "@/app/faq/faq-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { buttonVariants } from "@/components/ui/button";
 import { YnsLink } from "@/components/yns-link";
 
 export const metadata: Metadata = {
-	title: "FAQ — Your Next Store",
-	description: "Frequently asked questions about orders, payments, shipping, returns, and more.",
+	title: "FAQ — Joies Laia",
+	description: "Preguntas frecuentes sobre pedidos, pagos, envíos, devoluciones y más.",
 };
 
 function CategoryNav({ categories }: { categories: FAQCategory[] }) {
@@ -16,7 +17,7 @@ function CategoryNav({ categories }: { categories: FAQCategory[] }) {
 				<a
 					key={category.id}
 					href={`#${category.id}`}
-					className="rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+					className={buttonVariants({ variant: "outline", size: "sm" })}
 				>
 					{category.title}
 				</a>
@@ -48,11 +49,11 @@ function ContactCard() {
 		<div className="rounded-lg border border-border bg-secondary/30 p-8 text-center">
 			<h2 className="text-2xl font-medium tracking-tight">Still have questions?</h2>
 			<p className="mt-2 text-muted-foreground">
-				We're here to help. Reach out and we'll get back to you as soon as possible.
+				Estamos aquí para ayudarte. Escríbenos y te responderemos lo antes posible.
 			</p>
 			<div className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
 				<Mail className="h-4 w-4" />
-				<span>Contact us via the details on our website</span>
+				<span>Contáctanos a través de los datos de nuestra página web</span>
 			</div>
 		</div>
 	);
@@ -72,9 +73,9 @@ export default function FAQPage() {
 				</YnsLink>
 				<span className="mx-2 text-muted-foreground">/</span>
 				<span className="text-sm">FAQ</span>
-				<h1 className="mt-4 text-4xl font-medium tracking-tight">Frequently Asked Questions</h1>
+				<h1 className="mt-4 text-4xl font-medium tracking-tight">Preguntas Frecuentes</h1>
 				<p className="mt-3 text-lg text-muted-foreground">
-					Find answers to the most common questions about your orders, payments, shipping, and more.
+					Encuentra respuestas a las preguntas más comunes sobre tus pedidos, pagos, envíos y más.
 				</p>
 			</div>
 
