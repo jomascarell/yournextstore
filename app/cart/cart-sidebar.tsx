@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "@/com
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 
-const FREE_SHIPPING_THRESHOLD = BigInt(8000); // 80€ en céntimos
+const FREE_SHIPPING_THRESHOLD = BigInt(5000); // 50€ en céntimos
 const SHIPPING_GREEN = "rgb(45,106,79)";
 const SHIPPING_BG = "rgb(216,243,220)";
 
